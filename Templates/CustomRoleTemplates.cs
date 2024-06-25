@@ -21,7 +21,7 @@ namespace CustomizableUIMeow.UITemplates
         {
             string template = UIPluginConfig.instance.CustomSCPTemplate.TopBar;
 
-            TopBar.message = PlayerUICommonTools.GetContent(template, player);
+            TopBar.message = TemplateCommonTools.GetContent(template, player);
             TopBar.hide = false;
         }
 
@@ -29,7 +29,7 @@ namespace CustomizableUIMeow.UITemplates
         {
             string template = UIPluginConfig.instance.CustomSCPTemplate.BottomBar;
 
-            BottomBar.message = PlayerUICommonTools.GetContent(template, player);
+            BottomBar.message = TemplateCommonTools.GetContent(template, player);
             BottomBar.hide = false;
         }
     }
@@ -46,7 +46,7 @@ namespace CustomizableUIMeow.UITemplates
         {
             string template = UIPluginConfig.instance.CustomHumanTemplate.TopBar;
 
-            TopBar.message = PlayerUICommonTools.GetContent(template, player);
+            TopBar.message = TemplateCommonTools.GetContent(template, player);
             TopBar.hide = false;
         }
 
@@ -54,7 +54,7 @@ namespace CustomizableUIMeow.UITemplates
         {
             string template = UIPluginConfig.instance.CustomHumanTemplate.BottomBar;
 
-            BottomBar.message = PlayerUICommonTools.GetContent(template, player);
+            BottomBar.message = TemplateCommonTools.GetContent(template, player);
             BottomBar.hide = false;
         }
     }

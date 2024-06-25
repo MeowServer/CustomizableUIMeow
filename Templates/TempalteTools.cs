@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace CustomizableUIMeow
 {
-    public static class PlayerUICommonTools
+    public static class TemplateCommonTools
     {
         /// <summary>
         /// This code return a value that indicate whether a player is a scp, this include custom roles that include "SCP" in their name
@@ -150,36 +150,7 @@ namespace CustomizableUIMeow
 
         public static List<Player> GetSpectatorInfo(Player player)//get a list of all the spectators watching this player
         {
-            List<Player> spectatingPlayers = new List<Player>();
-
-            if (player == null)
-                return spectatingPlayers;
-
-            foreach (Player item in Player.List)
-            {
-                if(item == null || item.Role == null)
-                    continue;
-
-                if (item.Role.Type != RoleTypeId.Spectator)
-                    continue;
-
-                try
-                {
-                    SpectatorRole spectator = player.Role.As<SpectatorRole>();
-
-                    if (spectator != null && spectator.SpectatedPlayer == player)
-                    {
-                        spectatingPlayers.Add(player);
-                    }
-                }
-                catch (Exception)
-                {
-                    continue;
-                }
-                
-            }
-
-            return spectatingPlayers;
+            return player.CurrentSpectatingPlayers.ToList();
         }
     }
 }

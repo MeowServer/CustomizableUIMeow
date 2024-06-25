@@ -68,7 +68,7 @@ namespace CustomizableUIMeow.UITemplates
 
         protected virtual void UpdateSpectatorHints()
         {
-            var spectatingPlayers = PlayerUICommonTools.GetSpectatorInfo(player);
+            var spectatingPlayers = TemplateCommonTools.GetSpectatorInfo(player);
 
             spectatorTip.hide = true;
             spectatorHints.ForEach(x => x.hide = true);
@@ -92,6 +92,7 @@ namespace CustomizableUIMeow.UITemplates
 
         }
     }
+
     internal class GeneralHumanTemplate : AliveTemplate
     {
         public override PlayerUITemplateType type { get; } = PlayerUITemplateType.GeneralHuman;
@@ -105,7 +106,7 @@ namespace CustomizableUIMeow.UITemplates
         {
             string template = UIPluginConfig.instance.GeneralHumanTemplateConfig.TopBar;
 
-            TopBar.message = PlayerUICommonTools.GetContent(template, player);
+            TopBar.message = TemplateCommonTools.GetContent(template, player);
             TopBar.hide = false;
         }
 
@@ -113,7 +114,7 @@ namespace CustomizableUIMeow.UITemplates
         {
             string template = UIPluginConfig.instance.GeneralHumanTemplateConfig.BottomBar;
 
-            BottomBar.message = PlayerUICommonTools.GetContent(template, player);
+            BottomBar.message = TemplateCommonTools.GetContent(template, player);
             BottomBar.hide = false;
         }
     }
@@ -141,7 +142,7 @@ namespace CustomizableUIMeow.UITemplates
         {
             string template = UIPluginConfig.instance.ScpTemplateConfig.TopBar;
 
-            TopBar.message = PlayerUICommonTools.GetContent(template, player);
+            TopBar.message = TemplateCommonTools.GetContent(template, player);
             TopBar.hide = false;
         }
 
@@ -149,7 +150,7 @@ namespace CustomizableUIMeow.UITemplates
         {
             string template = UIPluginConfig.instance.ScpTemplateConfig.BottomBar;
 
-            BottomBar.message = PlayerUICommonTools.GetContent(template, player);
+            BottomBar.message = TemplateCommonTools.GetContent(template, player);
             BottomBar.hide = false;
         }
 
@@ -215,7 +216,7 @@ namespace CustomizableUIMeow.UITemplates
         {
             try
             {
-                if (PlayerUICommonTools.IsSCP(ev.Player) && ev.Player.Role.Type != RoleTypeId.Scp0492 && ev.Player.Health <= ev.Player.MaxHealth * 0.2)
+                if (TemplateCommonTools.IsSCP(ev.Player) && ev.Player.Role.Type != RoleTypeId.Scp0492 && ev.Player.Health <= ev.Player.MaxHealth * 0.2)
                 {
                     if (lastTimeHurtInformed.ContainsKey(ev.Player))
                     {
@@ -242,9 +243,12 @@ namespace CustomizableUIMeow.UITemplates
         {
             try
             {
-                if (PlayerUICommonTools.IsSCP(ev.Player) && ev.Player.Role.Type != RoleTypeId.Scp0492 && ev.NewRole == RoleTypeId.Spectator)
+                if (TemplateCommonTools.IsSCP(ev.Player) && ev.Player.Role.Type != RoleTypeId.Scp0492 && ev.NewRole == RoleTypeId.Spectator)
                 {
-                    SCPInformations.Insert(0, new SCPEventHint(SCPEventHint.SCPEventType.SCPDeath, $"<b><color=#D32F2F>⚠</color></b>{UIPluginConfig.instance.GeneralConfig.RoleName[ev.Player.Role.Type]}已死亡", Round.ElapsedTime));
+                    SCPInformations.Insert(0, 
+                        new SCPEventHint(SCPEventHint.SCPEventType.SCPDeath, 
+                        $"<b><color=#D32F2F>⚠</color></b>{UIPluginConfig.instance.GeneralConfig.RoleName[ev.Player.Role.Type]}已死亡", 
+                        Round.ElapsedTime));
                 }
             }catch(Exception ex)
             {
@@ -261,7 +265,7 @@ namespace CustomizableUIMeow.UITemplates
                 {
                     foreach (Player player in Player.List)
                     {
-                        if (!PlayerUICommonTools.IsSCP(player))
+                        if (!TemplateCommonTools.IsSCP(player))
                             continue;
 
                         foreach (Player target in Player.List)
@@ -276,14 +280,20 @@ namespace CustomizableUIMeow.UITemplates
                             {
                                 if (Round.ElapsedTime - lastTimeSpotted[player] > TimeSpan.FromSeconds(40))
                                 {
-                                    SCPInformations.Insert(0, new SCPEventHint(SCPEventHint.SCPEventType.SpotHuman, $"<b><color=#3385ff>⚪</color></b>{UIPluginConfig.instance.GeneralConfig.RoleName[player.Role.Type]}在{UIPluginConfig.instance.GeneralConfig.ZoneName[player.Zone]}找到了一个人类", Round.ElapsedTime));
+                                    SCPInformations.Insert(0, 
+                                        new SCPEventHint(SCPEventHint.SCPEventType.SpotHuman, 
+                                        $"<b><color=#3385ff>⚪</color></b>{UIPluginConfig.instance.GeneralConfig.RoleName[player.Role.Type]}在{UIPluginConfig.instance.GeneralConfig.ZoneName[player.Zone]}找到了一个人类", 
+                                        Round.ElapsedTime));
                                     lastTimeSpotted[player] = Round.ElapsedTime;
                                 }
                             }
                             else
                             {
                                 lastTimeSpotted.Add(player, Round.ElapsedTime);
-                                SCPInformations.Insert(0, new SCPEventHint(SCPEventHint.SCPEventType.SCPDeath, $"<b><color=#3385ff>⚪</color></b>{UIPluginConfig.instance.GeneralConfig.RoleName[player.Role.Type]}在{UIPluginConfig.instance.GeneralConfig.ZoneName[player.Zone]}找到了一个人类", Round.ElapsedTime));
+                                SCPInformations.Insert(0, 
+                                    new SCPEventHint(SCPEventHint.SCPEventType.SCPDeath, 
+                                    $"<b><color=#3385ff>⚪</color></b>{UIPluginConfig.instance.GeneralConfig.RoleName[player.Role.Type]}在{UIPluginConfig.instance.GeneralConfig.ZoneName[player.Zone]}找到了一个人类", 
+                                    Round.ElapsedTime));
                             }
                         }
                     }
@@ -292,7 +302,7 @@ namespace CustomizableUIMeow.UITemplates
                 {
                     foreach (Player player in Player.List)
                     {
-                        if (!PlayerUICommonTools.IsSCP(player))
+                        if (!TemplateCommonTools.IsSCP(player))
                             continue;
 
                         List<Player> targets = new List<Player>();
@@ -320,7 +330,10 @@ namespace CustomizableUIMeow.UITemplates
 
                         if (targets.Count >= 4)
                         {
-                            SCPInformations.Insert(0, new SCPEventHint(SCPEventHint.SCPEventType.SpotHuman2, $"⚪{UIPluginConfig.instance.GeneralConfig.RoleName[player.Role.Type]}在{player.Zone}找到了大量人类", Round.ElapsedTime));
+                            SCPInformations.Insert(0, 
+                                new SCPEventHint(SCPEventHint.SCPEventType.SpotHuman2, 
+                                $"⚪{UIPluginConfig.instance.GeneralConfig.RoleName[player.Role.Type]}在{player.Zone}找到了大量人类", 
+                                Round.ElapsedTime));
                             foreach (Player target in targets)
                             {
                                 if (lastTimeSpotted.ContainsKey(target))

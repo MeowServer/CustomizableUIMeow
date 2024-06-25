@@ -367,7 +367,7 @@
     <Compile Include="Config\PlayerUITemplateConfigs.cs" />
     <Compile Include="Config\PlayerUIToolConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates\UITools.cs" />
+    <Compile Include="Templates\TempalteTools.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

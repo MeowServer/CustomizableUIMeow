@@ -45,9 +45,9 @@ namespace CustomizableUIMeow
 
             template?.DestructTemplate();
 
-            if (PlayerUICommonTools.IsCustomRole(player))
+            if (TemplateCommonTools.IsCustomRole(player))
             {
-                if (PlayerUICommonTools.IsSCP(player))
+                if (TemplateCommonTools.IsSCP(player))
                 {
                     template = new CustomSCPTemplate(player);
                 }
@@ -84,9 +84,9 @@ namespace CustomizableUIMeow
         {
             bool isCorrectType;
 
-            if (PlayerUICommonTools.IsCustomRole(player))
+            if (TemplateCommonTools.IsCustomRole(player))
             {
-                if (PlayerUICommonTools.IsSCP(player))
+                if (TemplateCommonTools.IsSCP(player))
                 {
                     isCorrectType = template?.type == PlayerUITemplateBase.PlayerUITemplateType.CustomSCP;
                 }
