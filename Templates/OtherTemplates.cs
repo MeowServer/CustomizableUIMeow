@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HintServiceMeow;
 using Exiled.API.Features;
+using HintServiceMeow;
 
 using Hint = HintServiceMeow.Hint;
 
@@ -16,9 +16,9 @@ namespace CustomizableUIMeow.UITemplates
     {
         public override PlayerUITemplateType type { get; } = PlayerUITemplateType.Spectator;
 
-        private Hint topInformation = new Hint(0, HintAlignment.Center, "", null, false).setFontSize(10);
+        private Hint topInformation = new Hint(0, HintAlignment.Center, "", null, false).SetFontSize(10);
 
-        private Hint respawnTimer = new Hint(420, HintAlignment.Center, "", null, false).setFontSize(25);
+        private Hint respawnTimer = new Hint(420, HintAlignment.Center, "", null, false).SetFontSize(25);
 
         private Hint warheadStatus = new Hint(450, HintAlignment.Left, "", null, false);
         private Hint generatorsStatus = new Hint(470, HintAlignment.Left, "", null, false);

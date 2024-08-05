@@ -24,7 +24,7 @@ namespace CustomizableUIMeow
 
         public override void OnEnabled()
         {
-            if(Exiled.Loader.Loader.Plugins.First(x => x.Name == "HintServiceMeow").Version < new Version(3, 3, 0))
+            if(Exiled.Loader.Loader.Plugins.First(x => x.Name == "HintServiceMeow").Version < new Version(4, 0, 0))
             {
                 Log.Error("To load CustomizableUIMeow, HintServiceMeow's version must be higher or equal to 3.3.0.");
                 return;

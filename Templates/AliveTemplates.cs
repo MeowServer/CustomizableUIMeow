@@ -21,18 +21,18 @@ namespace CustomizableUIMeow.UITemplates
     internal abstract class AliveTemplate : PlayerUITemplateBase
     {
         //Top Bar
-        public Hint TopBar = new Hint(0, HintAlignment.Center, "", "TopBar1", true).setFontSize(15);
+        public Hint TopBar = new Hint(0, HintAlignment.Center, "", "TopBar1", true).SetFontSize(15);
 
         //Bottom Bar
-        public Hint BottomBar = new Hint(710, HintAlignment.Center, "", "BottomBar1", true).setFontSize(20);
+        public Hint BottomBar = new Hint(710, HintAlignment.Center, "", "BottomBar1", true).SetFontSize(20);
 
-        private DynamicHint spectatorTip = new DynamicHint(100, 300, HintAlignment.Right, "", "SpectatorHints1", true).setFontSize(20);
+        private DynamicHint spectatorTip = new DynamicHint(100, 300, HintAlignment.Right, "", "SpectatorHints1", true).SetFontSize(20);
         private DynamicHint[] spectatorHints = new DynamicHint[4]
         {
-            new DynamicHint(120, 320, HintAlignment.Right, "", "SpectatorHints1", true).setFontSize(20),
-            new DynamicHint(140, 340, HintAlignment.Right, "", "SpectatorHints2", true).setFontSize(20),
-            new DynamicHint(160, 360, HintAlignment.Right, "", "SpectatorHints3", true).setFontSize(20),
-            new DynamicHint(180, 380, HintAlignment.Right, "", "SpectatorHints4", true).setFontSize(20)
+            new DynamicHint(120, 320, HintAlignment.Right, "", "SpectatorHints1", true).SetFontSize(20),
+            new DynamicHint(140, 340, HintAlignment.Right, "", "SpectatorHints2", true).SetFontSize(20),
+            new DynamicHint(160, 360, HintAlignment.Right, "", "SpectatorHints3", true).SetFontSize(20),
+            new DynamicHint(180, 380, HintAlignment.Right, "", "SpectatorHints4", true).SetFontSize(20)
         };
 
         public AliveTemplate(Player player) : base(player)
@@ -128,10 +128,10 @@ namespace CustomizableUIMeow.UITemplates
         //SCP Info Slots
         protected Hint[] infoSlots = new Hint[4]
         {
-            new Hint(30, HintAlignment.Right, "", "infoSlot1", true).setFontSize(20),
-            new Hint(50, HintAlignment.Right, "", "infoSlot2", true).setFontSize(20),
-            new Hint(70, HintAlignment.Right, "", "infoSlot3", true).setFontSize(20),
-            new Hint(90, HintAlignment.Right, "", "infoSlot4", true).setFontSize(20)
+            new Hint(30, HintAlignment.Right, "", "infoSlot1", true).SetFontSize(20),
+            new Hint(50, HintAlignment.Right, "", "infoSlot2", true).SetFontSize(20),
+            new Hint(70, HintAlignment.Right, "", "infoSlot3", true).SetFontSize(20),
+            new Hint(90, HintAlignment.Right, "", "infoSlot4", true).SetFontSize(20)
         };
 
         public SCPTemplate(Player player) : base(player)
