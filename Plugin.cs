@@ -1,64 +1,77 @@
-﻿using CustomizableUIMeow.Config;
-using Exiled.API.Enums;
+﻿using Exiled.API.Enums;
 using Exiled.API.Features;
-using Exiled.Events.EventArgs.Player;
-using HarmonyLib;
-using HintServiceMeow;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CustomizableUIMeow.Parser;
+using CustomizableUIMeow.Utilities;
+using CustomizableUIMeow.Model.ConfigClass;
+using YamlDotNet.Serialization.NamingConventions;
+using YamlDotNet.Serialization;
+using System.IO;
+
+// * V1.0.0
+// *     Separate from HintServiceMeow and add new features
+// * V2.0.0 Remake
 
 namespace CustomizableUIMeow
 {
-    class Plugin : Plugin<UIPluginConfig>
+    internal class Plugin : Plugin<PluginConfig, PluginTranslation>
     {
         public override string Name => "CustomizableUIMeow";
-        public override string Author => "MeowServerOwner";
-        public override Version Version => new Version(1, 0, 0);
+        public override string Author => "MeowServer";
+        public override Version Version => new Version(2, 0, 0);
 
-        public override PluginPriority Priority => PluginPriority.Default;
+        public override PluginPriority Priority => PluginPriority.Last;
 
-        public static Plugin instance;
+        public static Plugin Instance;
 
         public override void OnEnabled()
         {
-            if(Exiled.Loader.Loader.Plugins.First(x => x.Name == "HintServiceMeow").Version < new Version(4, 0, 0))
-            {
-                Log.Error("To load CustomizableUIMeow, HintServiceMeow's version must be higher or equal to 3.3.0.");
-                return;
-            }
+            Instance = this;
+            PluginConfig.Instance = Config;
+            PluginTranslation.Instance = Translation;
 
-            instance = this;
-            UIPluginConfig.instance = Config;
+            FileReader.InitializeFile();
 
-            HintServiceMeow.EventHandler.NewPlayer += OnPlayerDisplayCreated;
-            Exiled.Events.Handlers.Player.Left += OnLeft;
+            ConditionParserLoader.Instance = new ConditionParserLoader();
+            TagParserLoader.Instance = new TagParserLoader();
+
+            TemplateLoader.Instance = new TemplateLoader();
+
+            Exiled.Events.Handlers.Player.Verified += EventHandler.OnVerified;
+            Exiled.Events.Handlers.Player.Left += EventHandler.OnLeft;
+            Exiled.Events.Handlers.Player.ChangingRole += EventHandler.OnChangingRole;
 
             base.OnEnabled();
         }
 
         public override void OnDisabled()
         {
-            instance = null;
-            UIPluginConfig.instance = null;
+            Instance = null;
+            PluginConfig.Instance = null;
+            PluginTranslation.Instance = null;
 
-            HintServiceMeow.EventHandler.NewPlayer -= OnPlayerDisplayCreated;
-            Exiled.Events.Handlers.Player.Left -= OnLeft;
+            ConditionParserLoader.Instance = null;
+            TagParserLoader.Instance = null;
+
+            TemplateLoader.Instance = null;
+
+            Exiled.Events.Handlers.Player.Verified -= EventHandler.OnVerified;
+            Exiled.Events.Handlers.Player.Left -= EventHandler.OnLeft;
+            Exiled.Events.Handlers.Player.ChangingRole -= EventHandler.OnChangingRole;
 
             base.OnDisabled();
         }
 
-        // Create PlayerDisplay and PlayerUI for the new player
-        private static void OnPlayerDisplayCreated(PlayerDisplay pd)
+        public override void OnReloaded()
         {
-            new TemplateLoader(pd.player);
-        }
+            DisplayManager.DisplayManagers.Clear();
 
-        private static void OnLeft(LeftEventArgs ev)
-        {
-            TemplateLoader.RemoveTemplateLoader(ev.Player);
+            foreach(Player player in Player.List)
+            {
+                DisplayManager.GetOrCreate(player).SetTemplate();
+            }
+
+            base.OnReloaded();
         }
     }
 }

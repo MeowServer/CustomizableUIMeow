@@ -72,7 +72,7 @@
     </Reference>
     <Reference Include="HintServiceMeow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\HintServiceMeow\HintServiceMeow\bin\Debug\HintServiceMeow.dll</HintPath>
+      <HintPath>..\..\..\SCPSL-Framework\HintServiceMeow\HintServiceMeow\bin\Debug\HintServiceMeow.dll</HintPath>
     </Reference>
     <Reference Include="Mirror">
       <HintPath>..\..\..\..\OneDrive\桌面\C#测试\HintServiceMeow\HintServiceMeow\bin\Debug\Mirror.dll</HintPath>
@@ -357,25 +357,51 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TemplateLoader.cs" />
-    <Compile Include="Templates\AliveTemplates.cs" />
-    <Compile Include="Templates\Base.cs" />
+    <Compile Include="EventHandler.cs" />
+    <Compile Include="Model\ConfigClass\CustomHintConfig.cs" />
+    <Compile Include="Model\CustomHints.cs" />
+    <Compile Include="Model\Element.cs" />
+    <Compile Include="Model\ConfigClass\ElementConfig.cs" />
+    <Compile Include="Model\ConfigClass\UITemplateConfig.cs" />
+    <Compile Include="Model\UITemplate.cs" />
+    <Compile Include="Parser\BoolExpressionParser.cs" />
+    <Compile Include="Parser\ConditionParser\ConditionParserAttribute.cs" />
+    <Compile Include="Parser\ConditionParser\Respawn\RespawnCondition.cs" />
+    <Compile Include="Parser\ConditionParser\Round\RoundCondition.cs" />
+    <Compile Include="Parser\TagParser\CountTag\Counter.cs" />
+    <Compile Include="Parser\TagParser\Custom\CustomTagParser.cs" />
+    <Compile Include="Parser\TagParser\HelperTag\ColorHelper.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Generator\GeneratorInfo.cs" />
+    <Compile Include="Utilities\ConditionParserLoader.cs" />
+    <Compile Include="Utilities\DisplayManager.cs" />
+    <Compile Include="Utilities\FileReader.cs" />
+    <Compile Include="Utilities\TagParserLoader.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Item\PlayerItem.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Item\Weapon.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Map\MapInfo.cs" />
+    <Compile Include="Parser\TagParser\ParserUtilities\ItemGetter.cs" />
+    <Compile Include="Parser\TagParser\ParserUtilities\NameTranslator.cs" />
+    <Compile Include="Parser\TagParser\ParserUtilities\PlayerGetter.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Player\Role.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Player\Color.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Player\Team.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Respawn\RespawnInfo.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Round\RoundInfo.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Server\ServerInfo.cs" />
+    <Compile Include="Parser\TagParser\TagParserAttribute.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Player\Name.cs" />
+    <Compile Include="Parser\TagParser\TagParserParameter.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Warhead\WarheadInfo.cs" />
     <Compile Include="Plugin.cs" />
-    <Compile Include="Config\Config.cs" />
-    <Compile Include="Templates\CustomRoleTemplates.cs" />
-    <Compile Include="Config\GeneralConfig.cs" />
-    <Compile Include="Templates\OtherTemplates.cs" />
-    <Compile Include="Config\PlayerUITemplateConfigs.cs" />
-    <Compile Include="Config\PlayerUIToolConfig.cs" />
+    <Compile Include="PluginConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates\TempalteTools.cs" />
+    <Compile Include="PluginTranslation.cs" />
+    <Compile Include="Utilities\TemplateLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="HintServiceMeow.dll" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
