@@ -1,5 +1,5 @@
-- [English](https://github.com/MeowServer/CustomizableUIMeow/blob/main/README.md)
-- [中文(施工中...)](https://github.com/MeowServer/CustomizableUIMeow/blob/main/README_Zh.md)
+- [English](README.md)
+- [中文(施工中...)](README_Zh.md)
 # CustomizableUIMeow
  A SCP: SL UI system that allows you to design a customized UI for your players
 #  Configuration

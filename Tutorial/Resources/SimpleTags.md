@@ -36,5 +36,5 @@
 | SMaxPlayerCount      | The max players of the server |  |  |
 | SPlayerCount         | The current player count of the server |  |  |
 ## Simple player tag parameters
-| --------------------- | --------------------- | --------------------- |
 | SpectatedPlayer       | Player Tags | Get the value from the player spectated by the selected player |
+| --------------------- | --------------------- | --------------------- |
