@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using YamlDotNet.Serialization.NamingConventions;
 using YamlDotNet.Serialization;
 using CustomizableUIMeow.Model.ConfigClass;
+using System.Reflection;
+using CustomizableUIMeow.Model;
+using CustomizableUIMeow.Parser.TagParser.Custom;
 
 namespace CustomizableUIMeow.Utilities
 {
@@ -35,23 +38,36 @@ namespace CustomizableUIMeow.Utilities
         {
             if (!Directory.Exists(FilePath))
             {
-                InstallExampleUI();
+                Directory.CreateDirectory(FilePath);
             }
-            else
+
+            var serializer = new SerializerBuilder()
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .Build();
+
+            //Templates
+            var path =  Path.Combine(FilePath, FileType.Templates.ToString());
+            if(!Directory.Exists(path))
             {
-                foreach (var type in Enum.GetValues(typeof(FileType)))
-                {
-                    var path = Path.Combine(FilePath, type.ToString());
-
-                    if (!Directory.Exists(path))
-                        Directory.CreateDirectory(path);
-                }
+                Directory.CreateDirectory(path);
+                File.WriteAllText(Path.Combine(path, "YourTemplate.yml"), serializer.Serialize(new UITemplateConfig()));
             }
-        }
 
-        private static void InstallExampleUI()
-        {
+            //Elements
+            path = Path.Combine(FilePath, FileType.Elements.ToString());
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+                File.WriteAllText(Path.Combine(path, "YourElement.yml"), serializer.Serialize(new ElementConfig()));
+            }
 
+            //CustomTags
+            path = Path.Combine(FilePath, FileType.CustomTags.ToString());
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+                File.WriteAllText(Path.Combine(path, "YourCustomTag.yml"), serializer.Serialize(new CustomHintConfig()));
+            }
         }
     }
 }
