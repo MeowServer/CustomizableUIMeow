@@ -7,7 +7,7 @@
 | Warhead              | | IType | The type of the item |
 | WStatus              | The translated status of the warhead | ICategory | The category of the item |
 | WTimer               | The countdown of the warhead | Weapon |  |
-| Map                  | IWeaponName | The translated name of the weapon |
+| Map                  | | IWeaponName | The translated name of the weapon |
 | MSeed                | The seed of the map | IAmmoName | The translated name of the ammo used by the weapon |
 | Round                | | IWeaponType | The type of the weapon |
 | RElapsedTime         | The total elapsed time since round started | IAmmoType | The type of the ammo used by the weapon |
@@ -21,7 +21,7 @@
 | RStartedTime         | The started time of the round | PNickname | The nickname of the player |
 | RSurvivingSCPs       | The number of surviving SCPs | PCustomName | The custom name of the player |
 | RUptimeRounds        | The number of rounds since server started | PRankName | The name of player's rank |
-| Respawn              | PGroupName | The name of player's group |
+| Respawn | | PGroupName | The name of player's group |
 | RSChaosTickets       | The num of chao's ticket | PUnitName | The name of player's unit |
 | RSNtfTickets         | The num of NTF's ticket | Role |  |
 | RSNextKnownTeam      | The next known team that will be spawn | PRoleName | The translated name of player's role |
