@@ -1,6 +1,8 @@
 # UI Template Parameters
 This file contains all the parameters for UI Template
 ## Appliable Roles
+|Custom Roles | |
+| - | - |
 | None                     | NtfCaptain |
 | Scp173                   | NtfPrivate |
 | ClassD                   | Tutorial |
