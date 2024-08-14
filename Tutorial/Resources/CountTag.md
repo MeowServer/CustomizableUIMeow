@@ -1,6 +1,4 @@
 # Count Tag
-| Tag - Count Tag                    |
-| ---------------------------------- |
 | Count                              | Count the number of objects | Usage: [Count\|Parameter] |
 | Available parameters for Count tag |
 | Common                             | Commonly used parameters |  |  |
