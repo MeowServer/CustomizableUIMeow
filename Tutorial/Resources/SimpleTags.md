@@ -1,4 +1,5 @@
 # Simple Tags
+| - | - | - | - |
 | Generator            | Item |
 | GTotalCount          | The total number of generators | General |  |
 | GActivatedCount      | The total number of activated generators | IName | The name of the item |
