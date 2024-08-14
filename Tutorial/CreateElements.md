@@ -21,9 +21,15 @@ Here's a explanation for several properties
 
 ## Tags
 In element's text, you can include tags that will be replaced by contents. Here's are all the supported tags:
+
 [Simple Tag](./Resources/SimpleTags.md)
+
 [Count Tag](./Resources/CountTag.md)
+
 [Helper Tag](./Resources/HelperTag.md)
+
 [Custom Tag](CreateCustomTags.md)
+
 To add parameter to a tag, you can do it in the following way:
+
 [TagName|parameter1|parameter2......]
