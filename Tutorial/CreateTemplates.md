@@ -1,5 +1,5 @@
 ## Create a template
-Templates is a set of elements that will be display to a player.  You can create a template by create new .yml file in UI Templates\TEmplates folder.
+Templates is a set of elements that will be display to a player.  You can create a template by create new .yml file in UI Templates\Templates folder.
 Here's the example for yml file:
 ```yml
 appliedRole:
