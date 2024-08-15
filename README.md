@@ -28,6 +28,7 @@ public string Nickname(TagParserParameter parameter) => PlayerGetter.GetPlayer(p
 This method adds a tag named "PNickname," which returns the nickname of the player. 
 
 If you want to use TagParserParameter.Arguments. You must use Arguments.Dequeue method rather than get the argument directly.
+
 2. Extend condition
 Extending condition is similar to extending tags. Here's an example
 ```Csharp
