@@ -11,6 +11,8 @@ using System.IO;
 // * V1.0.0
 // *     Separate from HintServiceMeow and add new features
 // * V2.0.0 Remake
+// * V2.0.1 Bug Fixing
+// *    Fixing the bug that the plugin throw null reference error when the player leave
 
 namespace CustomizableUIMeow
 {
@@ -18,7 +20,7 @@ namespace CustomizableUIMeow
     {
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
-        public override Version Version => new Version(2, 0, 0);
+        public override Version Version => new Version(2, 0, 1);
 
         public override PluginPriority Priority => PluginPriority.Last;
 
