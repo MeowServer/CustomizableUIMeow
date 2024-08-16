@@ -1,5 +1,5 @@
 ## Create an element
-Elements are "a line of text" that appears on player's screen. You can create a element by create new .yml file in UI Templates\Elements folder. UI Templates folder can be find in your server's plugin config folder.
+Elements are "a line of text" that appears on the player's screen. You can create an element by creating a new .yml file in the UI Templates\Elements folder. UI Templates folder can be found in your server's plugin config folder.
 Here's the example for yml file:
 ```yml
 text: "Hello! [PNickname]"
@@ -10,13 +10,13 @@ alignment: Center
 size: 20
 updateRate: Normal
 ```
-This will show "HI!" followed by player's nickname on player's screen. 
-Here's a explanation for several properties
+This will show "HI!" followed by the player's nickname on the player's screen. 
+Here's an explanation for several properties
 | Property | Usage |
 | - | - |
-| xCoordiante | The X coordinate represent the horizontal offset of the element on player's screen. THe high X coordinate will make the element shows on the right side of the screen.|
-| yCoordinate | The y coordinate represent the vertical position of the element. Higher the y coordinate, lower the position of the element|
-| updateRate | Available: Fastest, Fast, Normal, Slow, UnSync. Faster the update rate, the lower the delay on element's update |
+| xCoordiante | The X coordinate represents the horizontal offset of the element on the player's screen. The high X coordinate will show the element on the right side of the screen.|
+| yCoordinate | The y coordinate represents the vertical position of the element. The higher the y coordinate, the lower the position of the element|
+| updateRate | Available: Fastest, Fast, Normal, Slow, UnSync. The faster the update rate, the lower the delay on the element's update |
 | alignment | Available: Left, Right, Center |
 
 ## Tags
@@ -30,6 +30,6 @@ In element's text, you can include tags that will be replaced by contents. Here'
 
 [Custom Tag](CreateCustomTags.md)
 
-To add parameter to a tag, you can do it in the following way:
+To add a parameter to a tag, you can do it in the following way:
 
 [TagName|parameter1|parameter2......]
