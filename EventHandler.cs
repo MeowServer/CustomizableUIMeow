@@ -26,6 +26,9 @@ namespace CustomizableUIMeow
         {
             Timing.CallDelayed(0.2f, () =>
             {
+                if(ev.Player == null)
+                    return;
+
                 try
                 {
                     DisplayManager.GetOrCreate(ev.Player).SetTemplate();
