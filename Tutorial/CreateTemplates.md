@@ -10,8 +10,7 @@ elements:
 - Another element name
 ```
 This will apply the elements with name "Your element name" and "Another element name" to players with SCP-173 and Class D role.
-Here's the Parameters you can use when creating a template
-[Template Parameters](./Resources/TemplateParameters.md)
+For usable parameters for Template, please check Customizable UI Tag List in release.
 
 ## Advanced
 Template also provides ways to apply an element in certain condition.
@@ -27,5 +26,4 @@ elements:
   - RespawnTimer
   ```
   In this example, "RespawningTimer" will apply only when the condition "REIsRespawning" is true. "RespawnTimer" will apply only when the condition "REIsRespawning" is false.
-  You can find all the available conditions here:
-  [Conditions](./Resources/Conditions.md)
+  For supported conditions, please check Customizable UI Tag List in release.

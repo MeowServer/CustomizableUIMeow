@@ -20,16 +20,9 @@ Here's an explanation for several properties
 | alignment | Available: Left, Right, Center |
 
 ## Tags
-In element's text, you can include tags that will be replaced by contents. Here's are supported tags:
+In element's text, you can include tags that will be replaced by contents. Please check Customizable UI Tag List in release for supported tags
 
-[Simple Tag](./Resources/SimpleTags.md)
-
-[Count Tag](./Resources/CountTag.md)
-
-[Helper Tag](./Resources/HelperTag.md)
-
-[Custom Tag](CreateCustomTags.md)
-
+### Tag Parameters
 To add a parameter to a tag, you can do it in the following way:
 
 [TagName|parameter1|parameter2......]

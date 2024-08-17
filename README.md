@@ -19,20 +19,4 @@ Here's a tutorial for you to design your UI
 4. Restart your server
 
 # For Developers
-1. Extend Tags
-You can extend tags easily by adding a TagParser attribute to your own method. Here's an example
-```Csharp
-[TagParser("PNickname")]
-public string Nickname(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).Nickname;
-```
-This method adds a tag named "PNickname," which returns the nickname of the player. 
-
-If you want to use TagParserParameter.Arguments. You must use Arguments.Dequeue method rather than get the argument directly.
-
-2. Extend condition
-Extending condition is similar to extending tags. Here's an example
-```Csharp
-[ConditionParser("RIsEnded")]
-public bool IsEnded() => Exiled.API.Features.Round.IsEnded;
-```
-This method adds a condition named "RIsEnded," which returns true when the round is ended.
+Working on it...
