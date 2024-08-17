@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomizableUIMeow.Parser.TagParser;
 using CustomizableUIMeow.Parser.TagParser.ParserUtilities;
 
 namespace CustomizableUIMeow.Parser.SimpleTag.TagParser.Item

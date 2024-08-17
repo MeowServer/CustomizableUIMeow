@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CustomizableUIMeow.Parser.SimpleTag.TagParser;
-using PlayerRoles;
 using Exiled.API.Features;
 using Exiled.API.Enums;
+using CustomizableUIMeow.Parser.TagParser.TagParserUtilities;
 
 namespace CustomizableUIMeow.Parser.TagParser.CountTag
 {
@@ -19,8 +15,18 @@ namespace CustomizableUIMeow.Parser.TagParser.CountTag
                 return null;
 
             //Get native enum count
-            if (Enum.TryParse(arg, true, out RoleTypeId roleType))
-                return Exiled.API.Features.Player.Get(roleType).Count().ToString();
+            if (RoleTypeGetter.TryGetRoles("arg", out var roleTypes))
+            {
+                var roleCount = 0;
+
+                foreach (var roleType in roleTypes)
+                {
+                    roleCount += Player.Get(roleType).Count();
+                }
+
+                return roleCount.ToString();
+            }
+               
 
             if (Enum.TryParse(arg, true, out AmmoType ammoType))
                 return parameter.Player.GetAmmo(ammoType).ToString();
@@ -43,9 +49,9 @@ namespace CustomizableUIMeow.Parser.TagParser.CountTag
             switch (arg.ToLower())
             {
                 case "teammate":
-                    return Exiled.API.Features.Player.Get(parameter.Player.Role.Team).Count().ToString();
+                    return Player.Get(parameter.Player.Role.Team).Count().ToString();
                 case "sideteammate":
-                    return Exiled.API.Features.Player.Get(parameter.Player.Role.Side).Count().ToString();
+                    return Player.Get(parameter.Player.Role.Side).Count().ToString();
             }
 
             return null;

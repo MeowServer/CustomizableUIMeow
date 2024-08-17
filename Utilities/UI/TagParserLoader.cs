@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using CustomizableUIMeow.Parser.SimpleTag.TagParser;
+
+using CustomizableUIMeow.Parser.TagParser;
 using Exiled.API.Features;
 
-namespace CustomizableUIMeow.Parser
+namespace CustomizableUIMeow.Utilities.UI
 {
     /// <summary>
     /// Used to load parser and parse the tags in text
@@ -41,6 +41,13 @@ namespace CustomizableUIMeow.Parser
                     RegisterTagParser(instance);
                 }
             }
+
+            Log.Info($"Loaded {tagParserDictionary.Count} tag parsers.");
+        }
+
+        public void RegisterTagParser(string tagName, Func<TagParserParameter, object> parser)
+        {
+            tagParserDictionary[tagName.ToLower().Trim()] = parser;
         }
 
         private void RegisterTagParser(object provider)
@@ -54,7 +61,7 @@ namespace CustomizableUIMeow.Parser
                 if (attribute != null)
                 {
                     var parameters = method.GetParameters();
-                    if (parameters.Length == 1 && parameters[0].ParameterType == typeof(TagParserParameter) && method.ReturnType == typeof(string))
+                    if (parameters.Length == 1 && parameters[0].ParameterType == typeof(TagParserParameter) && (method.ReturnType == typeof(object) || method.ReturnType == typeof(string)))
                     {
                         var delegateInstance = (Func<TagParserParameter, object>)Delegate.CreateDelegate(typeof(Func<TagParserParameter, object>), provider, method);
                         tagParserDictionary[attribute.TagName.ToLower().Trim()] = delegateInstance;
@@ -78,11 +85,11 @@ namespace CustomizableUIMeow.Parser
                 var tagName = parts[0];
                 var args = new Queue<string>(parts.Skip(1));
 
-                if (tagParserDictionary.TryGetValue(tagName.ToLower().Trim(), out var valueProvider))
+                if (tagParserDictionary.TryGetValue(tagName.ToLower().Trim(), out var tagParser))
                 {
                     try
                     {
-                        return valueProvider(new TagParserParameter(player, tagName, args))?.ToString()??string.Empty;
+                        return tagParser(new TagParserParameter(player, tagName, args))?.ToString()??string.Empty;
                     }
                     catch(Exception e)
                     {

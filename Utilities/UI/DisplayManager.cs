@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using CustomizableUIMeow.Model;
-using CustomizableUIMeow.Parser;
+using CustomizableUIMeow.Parser.ConditionParser;
 using Exiled.API.Features;
-using Exiled.Events.EventArgs.Player;
 using HintServiceMeow.Core.Extension;
 using HintServiceMeow.Core.Models.Hints;
 using HintServiceMeow.Core.Utilities;
 using Hint = HintServiceMeow.Core.Models.Hints.Hint;
 
-namespace CustomizableUIMeow.Utilities
+namespace CustomizableUIMeow.Utilities.UI
 {
     public class DisplayManager
     {
@@ -75,8 +73,10 @@ namespace CustomizableUIMeow.Utilities
                 //Get element
                 var element = conditionalElement.Element;
 
+                var conditionArgument = new ConditionParserParameter(Player);
+
                 //Create hint for element
-                if(element != null)
+                if (element != null)
                     hints.Add(new Hint
                     {
                         Id = "CustomizableUI-" + element.Name,
@@ -85,15 +85,13 @@ namespace CustomizableUIMeow.Utilities
                         Alignment = element.Alignment,
                         FontSize = element.Size,
                         SyncSpeed = element.syncSpeed,
-                        AutoText = (AbstractHint.TextUpdateArg arg) =>
+                        AutoText = arg =>
                         {
                             try
                             {
                                 //Check condition
-                                if (conditionalElement.Condition.Invoke())
+                                if (conditionalElement.Condition.Invoke(conditionArgument))
                                     return TagParserLoader.Instance.ReplaceTags(element.Text, Player);
-                                else
-                                    return null;
                             }
                             catch (Exception ex)
                             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CustomizableUIMeow.Parser.SimpleTag.TagParser;
 using Exiled.API.Features.Roles;
 
-namespace CustomizableUIMeow.Parser.TagParser.Player
+namespace CustomizableUIMeow.Parser.TagParser.ParserUtilities
 {
     using Exiled.API.Features;
 

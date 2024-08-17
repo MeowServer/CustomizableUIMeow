@@ -1,30 +1,25 @@
-﻿using CustomizableUIMeow.Parser.SimpleTag.TagParser;
-using CustomizableUIMeow.Parser;
+﻿using CustomizableUIMeow.Parser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+
 using CustomizableUIMeow.Parser.ConditionParser;
 using Exiled.API.Features;
+using CustomizableUIMeow.Parser.TagParser;
 
-namespace CustomizableUIMeow.Utilities
+namespace CustomizableUIMeow.Utilities.UI
 {
     public class ConditionParserLoader
     {
         public static ConditionParserLoader Instance;
 
-        private readonly List<object> parserProviderInstances = new List<object>();
-        private readonly Dictionary<string, Func<bool>> Variables = new Dictionary<string, Func<bool>>();
-
-        private readonly BoolExpressionParser ExpressionParser;
+        private readonly List<object> _parserProviderInstances = new List<object>();
+        private readonly Dictionary<string, ConditionParserDelegate> _variables = new Dictionary<string, ConditionParserDelegate>();
 
         public ConditionParserLoader()
         {
             RegisterAllConditionParser();
-            ExpressionParser = new BoolExpressionParser(Variables);
         }
 
         public void RegisterAllConditionParser()
@@ -38,10 +33,12 @@ namespace CustomizableUIMeow.Utilities
                     .Any(m => m.GetCustomAttribute<ConditionParserAttribute>() != null))
                 {
                     var instance = Activator.CreateInstance(type);
-                    parserProviderInstances.Add(instance);
+                    _parserProviderInstances.Add(instance);
                     RegisterConditionParser(instance);
                 }
             }
+
+            Log.Info($"Registered {_variables.Count} Conditions");
         }
 
         private void RegisterConditionParser(object provider)
@@ -55,10 +52,15 @@ namespace CustomizableUIMeow.Utilities
                 if (attribute != null)
                 {
                     var parameters = method.GetParameters();
-                    if (parameters.Length == 0)
+                    if (parameters.Length == 1 && parameters[0].ParameterType == typeof(ConditionParserParameter) && method.ReturnType == typeof(bool))
+                    {
+                        var delegateInstance = (ConditionParserDelegate)Delegate.CreateDelegate(typeof(ConditionParserDelegate), provider, method);
+                        _variables[attribute.ConditionName.ToLower().Trim()] = delegateInstance;
+                    }
+                    else if(parameters.Length == 0 && method.ReturnType == typeof(bool))
                     {
                         var delegateInstance = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), provider, method);
-                        Variables[attribute.ConditionName.ToLower().Trim()] = delegateInstance;
+                        _variables[attribute.ConditionName.ToLower().Trim()] = parameter => delegateInstance.Invoke();
                     }
                     else
                     {
@@ -68,9 +70,25 @@ namespace CustomizableUIMeow.Utilities
             }
         }
 
-        public Func<bool> GetCondition(string conditionStr)
+        public void RegisterConditionParser(string conditionName, ConditionParserDelegate parser)
         {
-            return () => ExpressionParser.Evaluate(conditionStr);
+            _variables[conditionName.ToLower().Trim()] = parser;
         }
+
+        public bool TryGetCondition(string conditionStr, out ConditionParserDelegate condition)
+        {
+            return _variables.TryGetValue(conditionStr.ToLower().Trim(), out condition);
+        }
+
+        public ConditionParserDelegate ParseBoolExpression(string conditionStr)
+        {
+            return BoolExpressionParser.Instance.Evaluate(conditionStr);
+        }
+
+
+        //public Func<bool> GetCondition(string conditionStr)
+        //{
+        //    return () => _expressionParser.Evaluate(conditionStr);
+        //}
     }
 }

@@ -12,7 +12,7 @@ using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using static CustomizableUIMeow.Model.UITemplate;
 
-namespace CustomizableUIMeow.Utilities
+namespace CustomizableUIMeow.Utilities.UI
 {
     /// <summary>
     /// Used to load UIs from files
@@ -89,9 +89,10 @@ namespace CustomizableUIMeow.Utilities
 
         public UITemplate ParseTemplateConfig(UITemplateConfig config)
         {
-            UITemplate result = new UITemplate();
-
-            result.AppliedRole = new List<PlayerRoles.RoleTypeId>(config.AppliedRole);
+            UITemplate result = new UITemplate
+            {
+                AppliedRole = new List<PlayerRoles.RoleTypeId>(config.AppliedRole)
+            };
 
             foreach (object obj in config.Elements)
             {
@@ -119,7 +120,7 @@ namespace CustomizableUIMeow.Utilities
                                     result.Elements.Add(new ConditionalElement()
                                     {
                                         Element = element,
-                                        Condition = ConditionParserLoader.Instance.GetCondition((string)kvp.Key)
+                                        Condition = ConditionParserLoader.Instance.ParseBoolExpression((string)kvp.Key)
                                     });
                                 }
                             }
@@ -127,7 +128,7 @@ namespace CustomizableUIMeow.Utilities
                 }
                 catch(Exception ex)
                 {
-                    Log.Error($"Error while parsing elements when intializing the template: {ex}");
+                    Log.Error($"Error while parsing elements when initialize the template: {ex}");
                 }
             }
 

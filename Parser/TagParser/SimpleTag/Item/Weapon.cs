@@ -1,4 +1,5 @@
-﻿using CustomizableUIMeow.Parser.TagParser.ParserUtilities;
+﻿using CustomizableUIMeow.Parser.TagParser;
+using CustomizableUIMeow.Parser.TagParser.ParserUtilities;
 
 namespace CustomizableUIMeow.Parser.SimpleTag.TagParser.Item
 {

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CustomizableUIMeow.Parser.TagParser.ParserUtilities;
-
-namespace CustomizableUIMeow.Parser.SimpleTag.TagParser.Warhead
+﻿namespace CustomizableUIMeow.Parser.SimpleTag.TagParser.Warhead
 {
+    using CustomizableUIMeow.Parser.TagParser.ParserUtilities;
+    using CustomizableUIMeow.Parser.TagParser;
     using Exiled.API.Features;
 
     public class WarheadInfo
