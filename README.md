@@ -11,7 +11,7 @@ After installing the plugins mentioned above, follow the following steps to inst
 3.	Restart your server
 
 # Customization
-CustomizableUIMeow provides a way to design UI for your players without any programming efforts.
+CustomizableUIMeow allows you to design UI for your players without any programming efforts.
 Here's a tutorial for you to design your UI
 1. Install the plugin
 2. [Create elements](./Tutorial/CreateElements.md)
@@ -19,8 +19,8 @@ Here's a tutorial for you to design your UI
 4. Restart your server
 
 # For Developers
-You can register your own tag and condition using CustomizableUIMeow.API.Features. However, if you do not want your plugin to depends on CustomizableUIMeow, you can use reflection rather than calling my API directly.
-Here's a simple example of how to register your own tag without reference issue
+You can register your tag and condition using CustomizableUIMeow.API.Features. However, if you do not want your plugin to depend on CustomizableUIMeow, you can use reflection rather than calling the API directly.
+Here's a simple example of how to register your tag without a reference issue
 ```Csharp
 //Try find type
 string typeName = "CustomizableUIMeow.API.Features.TagParser, CustomizableUIMeow";
@@ -48,9 +48,9 @@ Func<Dictionary<string, object>, object> parser = parameter =>
 methodInfo.Invoke(null, new object[] { "YourTagName", parser });
 ```
 ### Parameters
-Please be notice that you can use both Dictionary<string, object> or dynamic as your parser's parameter. Here's the strucutre of parameters:
+You can use Dictionary<string, object> or dynamic as your parser's parameter. Here's the structure of the parameters:
 
-The structure of tag parser parameter dictionary:
+The structure of the tag parser parameter dictionary:
 ```Csharp
 {
     { "Player", Player },//Player
@@ -58,7 +58,7 @@ The structure of tag parser parameter dictionary:
     { "Arguments", Arguments }//Queue<string>
 }
 ```
-Here's the structure of tag parser parameter:
+Here's the structure of the tag parser parameter:
 ```Csharp
 public readonly string TagName;
 public readonly Player Player;
