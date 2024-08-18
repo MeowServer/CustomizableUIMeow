@@ -12,6 +12,8 @@ namespace CustomizableUIMeow.Model.ConfigClass
 
         public float SwitchInterval { get; set; } = 5f;
 
+        public bool Randomize { get; set; } = false;
+
         public List<string> TagContent { get; set; } = new List<string>()
         {
             "Your Custom Tag Content",

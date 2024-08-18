@@ -21,6 +21,8 @@ namespace CustomizableUIMeow.Model
             "Some other content"
         };
 
+        public bool Randomize { get; set; } = false;
+
         public CustomHints() { }
     }
 }

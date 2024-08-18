@@ -19,10 +19,12 @@ namespace CustomizableUIMeow.Parser.TagParser.Custom
     {
         private bool _initialized = false;
 
-        private List<CustomHints> _customTags = new List<CustomHints>();
+        private readonly List<CustomHints> _customTags = new List<CustomHints>();
+
+        private readonly Random _random = new Random(DateTime.Now.GetHashCode());
 
         [TagParser("CustomHints")]
-        public string Hints(TagParserParameter parameter)
+        public string Hint(TagParserParameter parameter)
         {
             if(!_initialized)
                 Initialize();
@@ -44,8 +46,12 @@ namespace CustomizableUIMeow.Parser.TagParser.Custom
             //Update the tag if it's time
             if(DateTime.Now > customTag.NextUpdate)
             {
-               customTag.NextUpdate = DateTime.Now.AddSeconds(customTag.SwitchInterval);
-               customTag.LastIndex = (customTag.LastIndex + 1) % customTag.TagContent.Count;
+                customTag.NextUpdate = DateTime.Now.AddSeconds(customTag.SwitchInterval);
+
+                if (customTag.Randomize)
+                    customTag.LastIndex = _random.Next(0, customTag.TagContent.Count);
+                else
+                    customTag.LastIndex = (customTag.LastIndex + 1) % customTag.TagContent.Count;
             }
 
             return customTag.TagContent[customTag.LastIndex];
@@ -68,6 +74,7 @@ namespace CustomizableUIMeow.Parser.TagParser.Custom
                     {
                         TagName = tagConfig.TagName,
                         SwitchInterval = tagConfig.SwitchInterval,
+                        Randomize = tagConfig.Randomize,
                         TagContent = tagConfig.TagContent
                     };
 
