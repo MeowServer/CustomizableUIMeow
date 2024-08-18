@@ -20,7 +20,7 @@ namespace CustomizableUIMeow.API.Features
             var pluginName = Assembly
                 .GetCallingAssembly()
                 .GetTypes()
-                .First(x => x.BaseType == typeof(Plugin))
+                .First(x => x.BaseType == typeof(Plugin))?
                 .Name;
 
             Log.Info($"Registering condition from {pluginName}: {name}");
@@ -35,7 +35,7 @@ namespace CustomizableUIMeow.API.Features
             var pluginName = Assembly
                 .GetCallingAssembly()
                 .GetTypes()
-                .First(x => x.BaseType == typeof(Plugin))
+                .First(x => x.BaseType == typeof(Plugin))?
                 .Name;
 
             Log.Info($"Registering condition from {pluginName}: {name}");
@@ -50,7 +50,7 @@ namespace CustomizableUIMeow.API.Features
             var pluginName = Assembly
                 .GetCallingAssembly()
                 .GetTypes()
-                .First(x => x.BaseType == typeof(Plugin))
+                .First(x => x.BaseType == typeof(Plugin))?
                 .Name;
 
             Log.Info($"Registering condition from {pluginName}: {name}");

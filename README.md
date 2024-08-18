@@ -19,4 +19,58 @@ Here's a tutorial for you to design your UI
 4. Restart your server
 
 # For Developers
-Working on it...
+You can register your own tag and condition using CustomizableUIMeow.API.Features. However, if you do not want your plugin to depends on CustomizableUIMeow, you can use reflection rather than calling my API directly.
+Here's a simple example of how to register your own tag without reference issue
+```Csharp
+//Try find type
+string typeName = "CustomizableUIMeow.API.Features.TagParser, CustomizableUIMeow";
+Type tagParserType = Type.GetType(typeName, throwOnError: false);
+if (tagParserType == null)
+{
+    return;
+}
+
+// Try find method
+Type[] paramTypes = { typeof(string), typeof(Func<Dictionary<string, object>, object>) };
+MethodInfo methodInfo = tagParserType.GetMethod("RegisterTagParser", BindingFlags.Public | BindingFlags.Static, null, paramTypes, null);
+if (methodInfo == null)
+{
+    return;
+}
+
+//Create parser delegate
+Func<Dictionary<string, object>, object> parser = parameter =>
+{
+    return "Hello World " + ((Player)parameter["Player"]).Nickname; //Use parameter to get player
+};
+
+//Register tag
+methodInfo.Invoke(null, new object[] { "YourTagName", parser });
+```
+### Parameters
+Please be notice that you can use both Dictionary<string, object> or dynamic as your parser's parameter. Here's the strucutre of parameters:
+
+The structure of tag parser parameter dictionary:
+```Csharp
+{
+    { "Player", Player },//Player
+    { "TagName", TagName },//string
+    { "Arguments", Arguments }//Queue<string>
+}
+```
+Here's the structure of tag parser parameter:
+```Csharp
+public readonly string TagName;
+public readonly Player Player;
+public readonly Queue<string> Arguments;
+```
+
+For conditions:
+```Csharp
+{
+    {"Player", Player }//Player
+}
+```
+```Csharp
+public Player Player { get; }
+```

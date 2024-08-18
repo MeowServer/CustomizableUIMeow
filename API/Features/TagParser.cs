@@ -12,12 +12,12 @@ namespace CustomizableUIMeow.API.Features
         /// <summary>
         /// Register a tag parser
         /// </summary>
-        public static void RegisterTagParserProvider(string name, Func<object> parser)
+        public static void RegisterTagParser(string name, Func<object> parser)
         {
             var pluginName = Assembly
                 .GetCallingAssembly()
                 .GetTypes()
-                .First(x => x.BaseType == typeof(Plugin))
+                .FirstOrDefault(x => x.BaseType == typeof(Plugin))?
                 .Name;
 
             Log.Info($"Registering tag parser from {pluginName}: {name}");
@@ -27,12 +27,12 @@ namespace CustomizableUIMeow.API.Features
         /// <summary>
         /// Register a tag parser
         /// </summary>
-        public static void RegisterTagParserProvider(string name, Func<Dictionary<string, object>, object> parser)
+        public static void RegisterTagParser(string name, Func<Dictionary<string, object>, object> parser)
         {
             var pluginName = Assembly
                 .GetCallingAssembly()
                 .GetTypes()
-                .First(x => x.BaseType == typeof(Plugin))
+                .FirstOrDefault(x => x.BaseType == typeof(Plugin))?
                 .Name;
 
             Log.Info($"Registering tag parser from {pluginName}: {name}");
@@ -42,12 +42,12 @@ namespace CustomizableUIMeow.API.Features
         /// <summary>
         /// Register a tag parser
         /// </summary>
-        public static void RegisterTagParserProvider(string name, Func<dynamic, object> parser)
+        public static void RegisterTagParser(string name, Func<dynamic, object> parser)
         {
             var pluginName = Assembly
                 .GetCallingAssembly()
                 .GetTypes()
-                .First(x => x.BaseType == typeof(Plugin))
+                .FirstOrDefault(x => x.BaseType == typeof(Plugin))?
                 .Name;
 
             Log.Info($"Registering tag parser from {pluginName}: {name}");

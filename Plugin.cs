@@ -17,6 +17,8 @@ using CustomizableUIMeow.Utilities.UI;
 // * V2.0.2 Minor changes
 // *    Add API for other plugins to register their own tag parser and condition
 // *    Add Data Recorder tags for player kill count and death count
+// * V2.0.3 Bug Fixing
+// *    Fix the bug that cause API not working properly
 
 namespace CustomizableUIMeow
 {
@@ -24,7 +26,7 @@ namespace CustomizableUIMeow
     {
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
-        public override Version Version => new Version(2, 0, 2);
+        public override Version Version => new Version(2, 0, 3);
 
         public override PluginPriority Priority => PluginPriority.Default;
 
