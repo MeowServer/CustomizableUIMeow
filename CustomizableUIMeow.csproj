@@ -376,6 +376,7 @@
     <Compile Include="Parser\TagParser\DataRecorderTag\PlayerData.cs" />
     <Compile Include="Parser\TagParser\HelperTag\ColorHelper.cs" />
     <Compile Include="Parser\TagParser\SimpleTag\Generator\GeneratorInfo.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\PlayerInfo\IdInfo.cs" />
     <Compile Include="Parser\TagParser\TagParserAttribute.cs" />
     <Compile Include="Parser\TagParser\TagParserParameter.cs" />
     <Compile Include="Parser\TagParser\TagParserUtilities\RoleTypeGetter.cs" />

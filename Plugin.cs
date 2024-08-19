@@ -19,8 +19,10 @@ using CustomizableUIMeow.Utilities.UI;
 // *    Add Data Recorder tags for player kill count and death count
 // * V2.0.3 Bug Fixing
 // *    Fix the bug that cause API not working properly
-// * V2.0.4 Bug Fixing
+// * V2.0.4
 // *    Add randomize in CustomHints tag
+// * V2.0.5
+// *    Add new tags for player's ID
 
 namespace CustomizableUIMeow
 {
@@ -28,7 +30,7 @@ namespace CustomizableUIMeow
     {
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
-        public override Version Version => new Version(2, 0, 4);
+        public override Version Version => new Version(2, 0, 5);
 
         public override PluginPriority Priority => PluginPriority.Default;
 
