@@ -23,6 +23,8 @@ using CustomizableUIMeow.Utilities.UI;
 // *    Add randomize in CustomHints tag
 // * V2.0.5
 // *    Add new tags for player's ID
+// * V2.0.6
+// *    Fix the bug that cause the count tag does not work properly
 
 namespace CustomizableUIMeow
 {
@@ -30,7 +32,7 @@ namespace CustomizableUIMeow
     {
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
-        public override Version Version => new Version(2, 0, 5);
+        public override Version Version => new Version(2, 0, 6);
 
         public override PluginPriority Priority => PluginPriority.Default;
 

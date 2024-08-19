@@ -15,7 +15,7 @@ namespace CustomizableUIMeow.Parser.TagParser.CountTag
                 return null;
 
             //Get native enum count
-            if (RoleTypeGetter.TryGetRoles("arg", out var roleTypes))
+            if (RoleTypeGetter.TryGetRoles(arg, out var roleTypes))
             {
                 var roleCount = 0;
 
