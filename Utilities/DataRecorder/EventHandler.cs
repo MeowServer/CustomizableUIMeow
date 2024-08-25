@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Exiled.API.Enums;
 
 namespace CustomizableUIMeow.Utilities.DataRecorder
 {
@@ -36,6 +37,21 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
                         ev.Attacker?.Role.Type??RoleTypeId.None, 
                         ev.TargetOldRole)
                     );
+            }
+
+            if (ev.Player != null && ev.DamageHandler.Type == DamageType.PocketDimension)
+            {
+                foreach (Player scp106 in Player.List.Where(x => x.Role == RoleTypeId.Scp106))
+                {
+                    PlayerRecorder.GetOrCreate(scp106).AddKillRecord(new PlayerRecorder.KillRecord(
+                        ev.Attacker?.UserId,
+                        ev.Player.UserId,
+                        ev.Attacker?.Role.Type ?? RoleTypeId.None,
+                        ev.TargetOldRole)
+                    );
+                }
+
+                return;
             }
 
             if (ev.Player != null && ev.Attacker != null)

@@ -25,6 +25,7 @@ using CustomizableUIMeow.Utilities.UI;
 // *    Add new tags for player's ID
 // * V2.0.6
 // *    Fix the bug that cause the count tag does not work properly
+// *    Add RequiredExiledVersion
 
 namespace CustomizableUIMeow
 {
@@ -33,6 +34,8 @@ namespace CustomizableUIMeow
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
         public override Version Version => new Version(2, 0, 6);
+
+        public override Version RequiredExiledVersion => new Version(8, 0, 0);
 
         public override PluginPriority Priority => PluginPriority.Default;
 

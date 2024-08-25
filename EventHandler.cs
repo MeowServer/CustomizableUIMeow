@@ -24,7 +24,7 @@ namespace CustomizableUIMeow
 
         public static void OnChangingRole(ChangingRoleEventArgs ev)
         {
-            Timing.CallDelayed(0.2f, () =>
+            Timing.CallDelayed(0f, () =>
             {
                 if(ev.Player == null)
                     return;
