@@ -14,6 +14,12 @@ namespace CustomizableUIMeow
     {
         public static void OnVerified(VerifiedEventArgs ev)
         {
+            if (ev.Player == null ||
+                ev.Player.IsVerified == false ||
+                ev.Player.UserId == null ||
+                ev.Player.ReferenceHub?.isLocalPlayer == true)
+                return;
+
             DisplayManager.GetOrCreate(ev.Player).SetTemplate();
         }
 

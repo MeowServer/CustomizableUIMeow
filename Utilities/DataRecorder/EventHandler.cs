@@ -29,17 +29,19 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
 
         public static void OnDied(DiedEventArgs ev)
         {
-            if (ev.Player != null)
-            {
-                PlayerRecorder.GetOrCreate(ev.Player).AddDeathRecord(new PlayerRecorder.DeathRecord(
-                        ev.Attacker?.UserId, 
-                        ev.Player.UserId, 
-                        ev.Attacker?.Role.Type??RoleTypeId.None, 
-                        ev.TargetOldRole)
-                    );
-            }
+            if (ev.Player?.UserId == null) //Check if player or it's id is null
+                return;
 
-            if (ev.Player != null && ev.DamageHandler.Type == DamageType.PocketDimension)
+            //Add death record
+            PlayerRecorder.GetOrCreate(ev.Player).AddDeathRecord(new PlayerRecorder.DeathRecord(
+                    ev.Attacker?.UserId, 
+                    ev.Player.UserId, 
+                    ev.Attacker?.Role.Type??RoleTypeId.None, 
+                    ev.TargetOldRole)
+                );
+
+            //Fix scp 106 kill record
+            if (ev.DamageHandler.Type == DamageType.PocketDimension)
             {
                 foreach (Player scp106 in Player.List.Where(x => x.Role == RoleTypeId.Scp106))
                 {
@@ -54,7 +56,8 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
                 return;
             }
 
-            if (ev.Player != null && ev.Attacker != null)
+            //Add kill record if attacker is not null
+            if (ev.Attacker != null)
             {
                 PlayerRecorder.GetOrCreate(ev.Attacker).AddKillRecord(new PlayerRecorder.KillRecord(
                         ev.Attacker?.UserId,
