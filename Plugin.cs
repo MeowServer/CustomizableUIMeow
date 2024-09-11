@@ -49,6 +49,10 @@ namespace CustomizableUIMeow
 
             FileReader.InitializeFile();
 
+            //Parsers
+            ArgumentParser.Instance = new ArgumentParser();
+            TranslationParser.Instance = new TranslationParser();
+
             //UI
             BoolExpressionParser.Instance = new BoolExpressionParser();
             ConditionParserLoader.Instance = new ConditionParserLoader();
@@ -70,6 +74,10 @@ namespace CustomizableUIMeow
             Instance = null;
             PluginConfig.Instance = null;
             PluginTranslation.Instance = null;
+
+            //Parsers
+            ArgumentParser.Instance = null;
+            TranslationParser.Instance = null;
 
             //UI
             BoolExpressionParser.Instance = null;

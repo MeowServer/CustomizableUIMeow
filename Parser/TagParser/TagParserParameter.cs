@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Exiled.API.Features;
 
 namespace CustomizableUIMeow.Parser.TagParser
@@ -9,9 +10,9 @@ namespace CustomizableUIMeow.Parser.TagParser
 
         public readonly Player Player;
 
-        public readonly Queue<string> Arguments;
+        public readonly ReadOnlyDictionary<string, string> Arguments;
 
-        public TagParserParameter(Exiled.API.Features.Player player, string tagName, Queue<string> arguments)
+        public TagParserParameter(Exiled.API.Features.Player player, string tagName, ReadOnlyDictionary<string, string> arguments)
         {
             this.Player = player;
             this.TagName = tagName;

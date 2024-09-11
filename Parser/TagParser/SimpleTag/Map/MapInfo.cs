@@ -6,6 +6,6 @@
     public class MapInfo
     {
         [TagParser("MSeed")]
-        public string Seed(TagParserParameter parameter) => Map.Seed.ToString();
+        public object Seed(TagParserParameter parameter) => Map.Seed.ToString();
     }
 }

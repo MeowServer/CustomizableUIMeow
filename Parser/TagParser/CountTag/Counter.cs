@@ -9,7 +9,7 @@ namespace CustomizableUIMeow.Parser.TagParser.CountTag
     public class Counter
     {
         [TagParser("Count")]
-        public string Count(TagParserParameter parameter)
+        public object Count(TagParserParameter parameter)
         {
             if (!parameter.Arguments.TryDequeue(out var arg))
                 return null;

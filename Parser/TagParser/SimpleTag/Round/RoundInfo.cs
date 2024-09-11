@@ -6,36 +6,36 @@
     public class RoundInfo
     {
         [TagParser("RElapsedTime")]
-        public string ElapsedTime(TagParserParameter parameter) => Round.ElapsedTime.ToString(@"mm\:ss");
+        public object ElapsedTime(TagParserParameter parameter) => Round.ElapsedTime.ToString(@"mm\:ss");
 
         [TagParser("RChangedIntoZombies")]
-        public string ChangedIntoZombies(TagParserParameter parameter) => Round.ChangedIntoZombies.ToString();
+        public object ChangedIntoZombies(TagParserParameter parameter) => Round.ChangedIntoZombies.ToString();
 
         [TagParser("RChaosTargetCounte")]
-        public string ChaosTargetCount(TagParserParameter parameter) => Round.ChaosTargetCount.ToString();
+        public object ChaosTargetCount(TagParserParameter parameter) => Round.ChaosTargetCount.ToString();
 
         [TagParser("REscapedDClasses")]
-        public string EscapedDClasses(TagParserParameter parameter) =>Round.EscapedDClasses.ToString();
+        public object EscapedDClasses(TagParserParameter parameter) =>Round.EscapedDClasses.ToString();
 
         [TagParser("REscapedScientists")]
-        public string EscapedScientists(TagParserParameter parameter) => Round.EscapedScientists.ToString();
+        public object EscapedScientists(TagParserParameter parameter) => Round.EscapedScientists.ToString();
 
         [TagParser("RKills")]
-        public string Kills(TagParserParameter parameter) => Round.Kills.ToString();
+        public object Kills(TagParserParameter parameter) => Round.Kills.ToString();
 
         [TagParser("RKillsByScp")]
-        public string KillsByScp(TagParserParameter parameter) => Round.KillsByScp.ToString();
+        public object KillsByScp(TagParserParameter parameter) => Round.KillsByScp.ToString();
 
         [TagParser("RLobbyWaitingTime")]
-        public string LobbyWaitingTime(TagParserParameter parameter) => (Round.LobbyWaitingTime >= 0 ? Round.LobbyWaitingTime : 0).ToString();
+        public object LobbyWaitingTime(TagParserParameter parameter) => (Round.LobbyWaitingTime >= 0 ? Round.LobbyWaitingTime : 0).ToString();
 
         [TagParser("RStartedTime")]
-        public string StartedTime(TagParserParameter parameter) => Round.StartedTime.ToString(@"t");
+        public object StartedTime(TagParserParameter parameter) => Round.StartedTime.ToString(@"t");
 
         [TagParser("RSurvivingSCPs")]
-        public string SurvivingSCPs(TagParserParameter parameter) => Round.SurvivingSCPs.ToString();
+        public object SurvivingSCPs(TagParserParameter parameter) => Round.SurvivingSCPs.ToString();
 
         [TagParser("RUptimeRounds")]
-        public string UptimeRounds(TagParserParameter parameter) => Round.UptimeRounds.ToString();
+        public object UptimeRounds(TagParserParameter parameter) => Round.UptimeRounds.ToString();
     }
 }

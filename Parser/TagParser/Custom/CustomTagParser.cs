@@ -24,7 +24,7 @@ namespace CustomizableUIMeow.Parser.TagParser.Custom
         private readonly Random _random = new Random(DateTime.Now.GetHashCode());
 
         [TagParser("CustomHints")]
-        public string Hint(TagParserParameter parameter)
+        public object Hint(TagParserParameter parameter)
         {
             if(!_initialized)
                 Initialize();

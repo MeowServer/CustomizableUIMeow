@@ -11,6 +11,7 @@ using Respawning;
 
 namespace CustomizableUIMeow
 {
+    //Should only have dictionary properties
     internal class PluginTranslation:ITranslation
     {
         public static PluginTranslation Instance;
@@ -142,7 +143,5 @@ namespace CustomizableUIMeow
             {WarheadStatus.Detonated, "<color=#ce313f>Detonated</color>" },
             {WarheadStatus.InProgress, "<color=#d0652f>In Progress</color>" },
         };
-
-
     }
 }

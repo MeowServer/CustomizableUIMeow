@@ -7,18 +7,18 @@ namespace CustomizableUIMeow.Parser.SimpleTag.TagParser.PlayerInfo
     public class Name
     {
         [TagParser("PNickname")]
-        public string Nickname(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).Nickname;
+        public object Nickname(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).Nickname;
 
         [TagParser("PCustomName")]
-        public string CustomName(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).CustomName;
+        public object CustomName(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).CustomName;
 
         [TagParser("PRankName")]
-        public string RankName(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).RankName;
+        public object RankName(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).RankName;
 
         [TagParser("PGroupName")]
-        public string GroupName(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).GroupName;
+        public object GroupName(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).GroupName;
 
         [TagParser("PUnitName")]
-        public string PlayerInfoName(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).UnitName;
+        public object PlayerInfoName(TagParserParameter parameter) => PlayerGetter.GetPlayer(parameter).UnitName;
     }
 }

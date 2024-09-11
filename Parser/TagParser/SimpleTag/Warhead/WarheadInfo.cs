@@ -7,10 +7,9 @@
     public class WarheadInfo
     {
         [TagParser("WStatus")]
-        public string Status(TagParserParameter parameter) => NameTranslator.GetName(Warhead.Status);
+        public object Status(TagParserParameter parameter) => NameTranslator.GetName(Warhead.Status);
 
         [TagParser("WTimer")]
-        public string Timer(TagParserParameter parameter) => Warhead.DetonationTimer.ToString("0.#");
-
+        public object Timer(TagParserParameter parameter) => Warhead.DetonationTimer.ToString("0.#");
     }
 }

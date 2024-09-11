@@ -84,11 +84,5 @@ namespace CustomizableUIMeow.Utilities.UI
         {
             return BoolExpressionParser.Instance.Evaluate(conditionStr);
         }
-
-
-        //public Func<bool> GetCondition(string conditionStr)
-        //{
-        //    return () => _expressionParser.Evaluate(conditionStr);
-        //}
     }
 }

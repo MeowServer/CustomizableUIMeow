@@ -14,7 +14,7 @@ namespace CustomizableUIMeow.Parser.TagParser.HelperTag
         private DateTime LastTimeUpdate = DateTime.MinValue;
 
         [TagParser("RandomColor")]
-        public string RandomColor(TagParserParameter parameter)
+        public object RandomColor(TagParserParameter parameter)
         {
             string color = lastColor;
 

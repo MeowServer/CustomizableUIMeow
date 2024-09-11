@@ -6,7 +6,6 @@ using CustomizableUIMeow.Model;
 using CustomizableUIMeow.Parser.ConditionParser;
 using Exiled.API.Features;
 using HintServiceMeow.Core.Extension;
-using HintServiceMeow.Core.Models.Hints;
 using HintServiceMeow.Core.Utilities;
 using Hint = HintServiceMeow.Core.Models.Hints.Hint;
 
@@ -48,7 +47,7 @@ namespace CustomizableUIMeow.Utilities.UI
 
             foreach (var elementName in allElements)
             {
-                Player.GetPlayerDisplay().RemoveHint("CustomizableUI-" + elementName);
+                Player.GetPlayerDisplay().ClearHint();
             }
 
             Templates.Clear();
@@ -79,7 +78,7 @@ namespace CustomizableUIMeow.Utilities.UI
                 if (element != null)
                     hints.Add(new Hint
                     {
-                        Id = "CustomizableUI-" + element.Name,
+                        Id = element.Name,
                         XCoordinate = element.XCoordinate,
                         YCoordinate = element.YCoordinate,
                         Alignment = element.Alignment,
