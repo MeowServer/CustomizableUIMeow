@@ -28,6 +28,8 @@ using CustomizableUIMeow.Utilities.UI;
 // *    Add RequiredExiledVersion
 // * V2.0.7
 // *    Fix the bug that Player Data Recorder does not work properly when using NPC
+// * V2.0.8
+// *    Fix the bug that Player Data Recorder does not work properly when using NPC (Again)
 
 namespace CustomizableUIMeow
 {
@@ -35,7 +37,7 @@ namespace CustomizableUIMeow
     {
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
-        public override Version Version => new Version(2, 0, 7);
+        public override Version Version => new Version(2, 0, 8);
 
         public override Version RequiredExiledVersion => new Version(8, 0, 0);
 

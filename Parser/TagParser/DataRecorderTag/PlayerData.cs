@@ -29,14 +29,20 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
                     {
                         foreach (var role in roles)
                         {
-                            result += PlayerRecorder.GetOrCreate(parameter.Player).RoleKillCountAfterRevive[role];
+                            if(PlayerRecorder.GetOrCreate(parameter.Player).RoleKillCountAfterRevive.TryGetValue(role, out var count))
+                            {
+                                result += count;
+                            }
                         }
                     }
                     else
                     {
                         foreach (var role in roles)
                         {
-                            result += PlayerRecorder.GetOrCreate(parameter.Player).RoleKillCount[role];
+                            if(PlayerRecorder.GetOrCreate(parameter.Player).RoleKillCount.TryGetValue(role, out var count))
+                            {
+                                result += count;
+                            }
                         }
                     }
 
@@ -61,14 +67,20 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
                     {
                         foreach (var role in roles)
                         {
-                            result += PlayerRecorder.GetOrCreate(parameter.Player).DeathCountAsRole[role];
+                            if(PlayerRecorder.GetOrCreate(parameter.Player).DeathCountAsRole.TryGetValue(role, out var count))
+                            {
+                                result += count;
+                            }
                         }
                     }
                     else
                     {
                         foreach (var role in roles)
                         {
-                            result += PlayerRecorder.GetOrCreate(parameter.Player).RoleDeathCount[role];
+                            if(PlayerRecorder.GetOrCreate(parameter.Player).RoleDeathCount.TryGetValue(role, out var count))
+                            {
+                                result += count;
+                            }
                         }
                     }
 
