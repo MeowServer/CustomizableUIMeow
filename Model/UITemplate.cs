@@ -1,7 +1,6 @@
-﻿using CustomizableUIMeow.Parser;
-using PlayerRoles;
-using System;
+﻿using PlayerRoles;
 using System.Collections.Generic;
+using CustomizableUIMeow.Parser.ConditionParser;
 
 namespace CustomizableUIMeow.Model
 {

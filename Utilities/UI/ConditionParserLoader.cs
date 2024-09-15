@@ -6,7 +6,6 @@ using System.Reflection;
 
 using CustomizableUIMeow.Parser.ConditionParser;
 using Exiled.API.Features;
-using CustomizableUIMeow.Parser.TagParser;
 
 namespace CustomizableUIMeow.Utilities.UI
 {
@@ -14,7 +13,6 @@ namespace CustomizableUIMeow.Utilities.UI
     {
         public static ConditionParserLoader Instance;
 
-        private readonly List<object> _parserProviderInstances = new List<object>();
         private readonly Dictionary<string, ConditionParserDelegate> _variables = new Dictionary<string, ConditionParserDelegate>();
 
         public ConditionParserLoader()
@@ -33,7 +31,6 @@ namespace CustomizableUIMeow.Utilities.UI
                     .Any(m => m.GetCustomAttribute<ConditionParserAttribute>() != null))
                 {
                     var instance = Activator.CreateInstance(type);
-                    _parserProviderInstances.Add(instance);
                     RegisterConditionParser(instance);
                 }
             }

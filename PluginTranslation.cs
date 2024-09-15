@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using Exiled.API.Enums;
 using Exiled.API.Interfaces;
+
 using PlayerRoles;
 using Respawning;
 
@@ -135,7 +133,7 @@ namespace CustomizableUIMeow
         };
 
         [Description("PluginTranslation of different warhead status")]
-        public Dictionary<WarheadStatus, string> WarheadStatusDictionary { get; private set; } = new Dictionary<Exiled.API.Enums.WarheadStatus, string>
+        public Dictionary<WarheadStatus, string> WarheadStatusDictionary { get; private set; } = new Dictionary<WarheadStatus, string>
         {
             {WarheadStatus.Armed, "<color=#d0652f>Ready</color>" },
             {WarheadStatus.NotArmed, "<color=#7fd827>Not Ready</color>" },
