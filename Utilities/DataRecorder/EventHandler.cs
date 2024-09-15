@@ -1,13 +1,9 @@
-﻿using Exiled.API.Features;
+﻿using Exiled.API.Enums;
+using Exiled.API.Features;
 using Exiled.Events.EventArgs.Player;
-using Org.BouncyCastle.Asn1.Mozilla;
 using PlayerRoles;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Exiled.API.Enums;
+
 
 namespace CustomizableUIMeow.Utilities.DataRecorder
 {
@@ -70,6 +66,9 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
 
         public static void OnVerified(VerifiedEventArgs ev)
         {
+            if (ev.Player?.UserId == null)
+                return;
+
             if (ev.Player != null)
             {
                 PlayerRecorder.GetOrCreate(ev.Player);
@@ -78,6 +77,9 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
 
         public static void OnLeft(LeftEventArgs ev)
         {
+            if (ev.Player?.UserId == null)
+                return;
+
             if (ev.Player != null)
             {
                 PlayerRecorder.Destruct(ev.Player);
