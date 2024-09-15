@@ -11,7 +11,7 @@ namespace CustomizableUIMeow.Parser.TagParser
 
         public readonly Queue<string> Arguments;
 
-        public TagParserParameter(Exiled.API.Features.Player player, string tagName, Queue<string> arguments)
+        public TagParserParameter(Player player, string tagName, Queue<string> arguments)
         {
             this.Player = player;
             this.TagName = tagName;

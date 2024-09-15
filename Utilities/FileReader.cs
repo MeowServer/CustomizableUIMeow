@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using YamlDotNet.Serialization.NamingConventions;
 using YamlDotNet.Serialization;
 using CustomizableUIMeow.Model.ConfigClass;
-using System.Reflection;
 using CustomizableUIMeow.Model;
-using CustomizableUIMeow.Parser.TagParser.Custom;
-
 namespace CustomizableUIMeow.Utilities
 {
     public static class FileReader

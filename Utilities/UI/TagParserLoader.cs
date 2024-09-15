@@ -16,10 +16,9 @@ namespace CustomizableUIMeow.Utilities.UI
     {
         public static TagParserLoader Instance;
 
-        private readonly List<object> parserProviderInstances = new List<object>();
-        private readonly Dictionary<string, Func<TagParserParameter, object>> tagParserDictionary = new Dictionary<string, Func<TagParserParameter, object>>();
+        private readonly Dictionary<string, Func<TagParserParameter, object>> _tagParserDictionary = new Dictionary<string, Func<TagParserParameter, object>>();
 
-        private readonly Regex regex = new Regex(@"\[(.*?)\]", RegexOptions.Compiled);
+        private readonly Regex _tagRegex = new Regex(@"\[(.*?)\]", RegexOptions.Compiled);
 
         public TagParserLoader()
         {
@@ -37,17 +36,16 @@ namespace CustomizableUIMeow.Utilities.UI
                     .Any(m => m.GetCustomAttribute<TagParserAttribute>() != null))
                 {
                     var instance = Activator.CreateInstance(type);
-                    parserProviderInstances.Add(instance);
                     RegisterTagParser(instance);
                 }
             }
 
-            Log.Info($"Loaded {tagParserDictionary.Count} tag parsers.");
+            Log.Info($"Loaded {_tagParserDictionary.Count} tag parsers.");
         }
 
         public void RegisterTagParser(string tagName, Func<TagParserParameter, object> parser)
         {
-            tagParserDictionary[tagName.ToLower().Trim()] = parser;
+            _tagParserDictionary[tagName.ToLower().Trim()] = parser;
         }
 
         private void RegisterTagParser(object provider)
@@ -64,7 +62,7 @@ namespace CustomizableUIMeow.Utilities.UI
                     if (parameters.Length == 1 && parameters[0].ParameterType == typeof(TagParserParameter) && (method.ReturnType == typeof(object) || method.ReturnType == typeof(string)))
                     {
                         var delegateInstance = (Func<TagParserParameter, object>)Delegate.CreateDelegate(typeof(Func<TagParserParameter, object>), provider, method);
-                        tagParserDictionary[attribute.TagName.ToLower().Trim()] = delegateInstance;
+                        _tagParserDictionary[attribute.TagName.ToLower().Trim()] = delegateInstance;
                     }
                     else
                     {
@@ -76,7 +74,7 @@ namespace CustomizableUIMeow.Utilities.UI
 
         public string ReplaceTags(string rawText, Player player)
         {
-            return regex.Replace(rawText, match =>
+            return _tagRegex.Replace(rawText, match =>
             {
                 var tagContent = match.Groups[1].Value;
 
@@ -85,7 +83,7 @@ namespace CustomizableUIMeow.Utilities.UI
                 var tagName = parts[0];
                 var args = new Queue<string>(parts.Skip(1));
 
-                if (tagParserDictionary.TryGetValue(tagName.ToLower().Trim(), out var tagParser))
+                if (_tagParserDictionary.TryGetValue(tagName.ToLower().Trim(), out var tagParser))
                 {
                     try
                     {

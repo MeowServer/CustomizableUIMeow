@@ -14,6 +14,9 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
         [TagParser("PDKillCount")]
         public object KillCount(TagParserParameter parameter)
         {
+            if(parameter.Player?.UserId == null)
+                return 0;
+
             if (parameter.Arguments.TryDequeue(out string arg1))
             {
                 if (arg1.ToLower() == "AfterRevive".ToLower())
@@ -57,6 +60,9 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
         [TagParser("PDDeathCount")]
         public object DeathCount(TagParserParameter parameter)
         {
+            if (parameter.Player?.UserId == null)
+                return 0;
+
             if (parameter.Arguments.TryDequeue(out var arg1))
             {
                 if(RoleTypeGetter.TryGetRoles(arg1, out var roles))

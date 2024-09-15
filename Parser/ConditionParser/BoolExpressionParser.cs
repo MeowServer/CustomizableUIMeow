@@ -1,14 +1,7 @@
-﻿using CustomizableUIMeow.Parser.ConditionParser;
-using CustomizableUIMeow.Utilities.UI;
-using Exiled.API.Features;
+﻿using CustomizableUIMeow.Utilities.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Org.BouncyCastle.Crypto.Digests.SkeinEngine;
 
-namespace CustomizableUIMeow.Parser
+namespace CustomizableUIMeow.Parser.ConditionParser
 {
     public delegate bool ConditionParserDelegate(ConditionParserParameter parameter);
 

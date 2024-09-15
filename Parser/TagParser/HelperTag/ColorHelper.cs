@@ -1,29 +1,23 @@
-﻿using CustomizableUIMeow.Parser.SimpleTag.TagParser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using System;
 
 namespace CustomizableUIMeow.Parser.TagParser.HelperTag
 {
     public class ColorHelper
     {
-        private string lastColor = "FFFFFF";
-        private DateTime LastTimeUpdate = DateTime.MinValue;
+        private string _lastColor = "FFFFFF";
+        private DateTime _LastTimeUpdate = DateTime.MinValue;
 
         [TagParser("RandomColor")]
         public string RandomColor(TagParserParameter parameter)
         {
-            string color = lastColor;
+            string color = _lastColor;
 
-            if (DateTime.Now - LastTimeUpdate > TimeSpan.FromSeconds(1))
+            if (DateTime.Now - _LastTimeUpdate > TimeSpan.FromSeconds(1))
             {
                 color = "#" + UnityEngine.Random.Range(0, 0xFFFFFF).ToString("X6");
 
-                lastColor = color;
-                LastTimeUpdate = DateTime.Now;
+                _lastColor = color;
+                _LastTimeUpdate = DateTime.Now;
             }
 
             return color;
