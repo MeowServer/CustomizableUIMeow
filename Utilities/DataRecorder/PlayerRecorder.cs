@@ -3,7 +3,10 @@ using PlayerRoles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Utils.NonAllocLINQ;
+using static CustomizableUIMeow.Utilities.DataRecorder.PlayerRecorder;
 
 namespace CustomizableUIMeow.Utilities.DataRecorder
 {
@@ -65,19 +68,14 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
 
         public static PlayerRecorder GetOrCreate(Player player)
         {
-            if (player == null)
+            if(player == null)
                 throw new ArgumentNullException(nameof(player));
-            if(player.UserId == null)
-                throw new ArgumentNullException(nameof(player.UserId));
 
             return PlayerRecorders.TryGetValue(player.UserId, out var recorder) ? recorder : new PlayerRecorder(player);
         }
 
         public static void Destruct(Player player)
         {
-            if (player?.UserId == null)
-                return;
-
             PlayerRecorders.Remove(player.UserId);
         }
 
@@ -110,25 +108,16 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
 
         public static int GetKillCount(Player player)
         {
-            if (player?.UserId == null)
-                return 0;
-
             return GetOrCreate(player).KillRecordList.Count;
         }
 
         public static int GetRoleKillCount(Player player, RoleTypeId role)
         {
-            if (player?.UserId == null)
-                return 0;
-
             return GetOrCreate(player).KillRecordList.Count(x => x.VictimRole == role);
         }
 
         public static int GetKillCountAfterRevive(Player player)
         {
-            if (player?.UserId == null)
-                return 0;
-
             var recorder = GetOrCreate(player);
 
             return recorder.KillRecordList.Count(x => x.Time > recorder.DeathRecordList.Last().Time);
@@ -136,17 +125,11 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
 
         public static int GetDeathCount(Player player)
         {
-            if (player?.UserId == null)
-                return 0;
-
             return GetOrCreate(player).DeathRecordList.Count;
         }
 
         public static int GetRoleDeathCount(Player player, RoleTypeId role)
         {
-            if (player?.UserId == null)
-                return 0;
-
             return GetOrCreate(player).DeathRecordList.Count(x => x.VictimRole == role);
         }
 
@@ -160,10 +143,10 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
             public RoleTypeId KillerRole { get; }
             public RoleTypeId VictimRole { get; }
 
-            public KillRecord(string killerId, string victimId, RoleTypeId killerRole, RoleTypeId victimRole)
+            public KillRecord(string killerID, string victimID, RoleTypeId killerRole, RoleTypeId victimRole)
             {
-                KillerId = killerId;
-                VictimId = victimId;
+                KillerId = killerID;
+                VictimId = victimID;
                 KillerRole = killerRole;
                 VictimRole = victimRole;
             }
@@ -182,10 +165,10 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
             public RoleTypeId KillerRole { get; }
             public RoleTypeId VictimRole { get; }
 
-            public DeathRecord(string killerId, string victimId, RoleTypeId killerRole, RoleTypeId victimRole)
+            public DeathRecord(string killerID, string victimID, RoleTypeId killerRole, RoleTypeId victimRole)
             {
-                KillerId = killerId;
-                VictimId = victimId;
+                KillerId = killerID;
+                VictimId = victimID;
                 KillerRole = killerRole;
                 VictimRole = victimRole;
             }

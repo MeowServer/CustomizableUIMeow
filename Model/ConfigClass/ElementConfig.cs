@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using HintServiceMeow.Core.Enum;
 
-namespace CustomizableUIMeow.Model.ConfigClass
+namespace CustomizableUIMeow.Model
 {
     [Serializable]
     public class ElementConfig

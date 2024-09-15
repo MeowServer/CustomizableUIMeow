@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using PlayerRoles;
 
-namespace CustomizableUIMeow.Model.ConfigClass
+namespace CustomizableUIMeow.Model
 {
     public class UITemplateConfig
     {

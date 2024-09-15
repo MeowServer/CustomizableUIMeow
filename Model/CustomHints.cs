@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CustomizableUIMeow.Model
 {
@@ -19,5 +22,7 @@ namespace CustomizableUIMeow.Model
         };
 
         public bool Randomize { get; set; } = false;
+
+        public CustomHints() { }
     }
 }
