@@ -1,8 +1,11 @@
-﻿using CustomizableUIMeow.Utilities.UI;
+﻿using CustomizableUIMeow.Parser;
+using CustomizableUIMeow.Parser.ConditionParser;
+using CustomizableUIMeow.Utilities.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Exiled.API.Features;
+using static Org.BouncyCastle.Crypto.Digests.SkeinEngine;
 using System.Reflection;
 
 namespace CustomizableUIMeow.API.Features
@@ -17,7 +20,7 @@ namespace CustomizableUIMeow.API.Features
             var pluginName = Assembly
                 .GetCallingAssembly()
                 .GetTypes()
-                .FirstOrDefault(x => x.BaseType == typeof(Plugin))?
+                .First(x => x.BaseType == typeof(Plugin))?
                 .Name;
 
             Log.Info($"Registering condition from {pluginName}: {name}");
@@ -32,7 +35,7 @@ namespace CustomizableUIMeow.API.Features
             var pluginName = Assembly
                 .GetCallingAssembly()
                 .GetTypes()
-                .FirstOrDefault(x => x.BaseType == typeof(Plugin))?
+                .First(x => x.BaseType == typeof(Plugin))?
                 .Name;
 
             Log.Info($"Registering condition from {pluginName}: {name}");
@@ -47,7 +50,7 @@ namespace CustomizableUIMeow.API.Features
             var pluginName = Assembly
                 .GetCallingAssembly()
                 .GetTypes()
-                .FirstOrDefault(x => x.BaseType == typeof(Plugin))?
+                .First(x => x.BaseType == typeof(Plugin))?
                 .Name;
 
             Log.Info($"Registering condition from {pluginName}: {name}");

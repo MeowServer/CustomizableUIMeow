@@ -6,6 +6,7 @@ using CustomizableUIMeow.Model;
 using CustomizableUIMeow.Parser.ConditionParser;
 using Exiled.API.Features;
 using HintServiceMeow.Core.Extension;
+using HintServiceMeow.Core.Models.Hints;
 using HintServiceMeow.Core.Utilities;
 using Hint = HintServiceMeow.Core.Models.Hints.Hint;
 
@@ -83,7 +84,7 @@ namespace CustomizableUIMeow.Utilities.UI
                         YCoordinate = element.YCoordinate,
                         Alignment = element.Alignment,
                         FontSize = element.Size,
-                        SyncSpeed = element.SyncSpeed,
+                        SyncSpeed = element.syncSpeed,
                         AutoText = arg =>
                         {
                             try
