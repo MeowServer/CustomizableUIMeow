@@ -2,26 +2,26 @@
 - [中文(施工中...)](README_Zh.md)
 - [Português](https://github.com/MeowServer/CustomizableUIMeow/blob/main/README_Br.md)
 # CustomizableUIMeow
- A SCP: SL UI system that allows you to design a customized UI for your players
-#  Configuration
-Before installing this plugin, you must first install [HintServiceMeow](https://github.com/MeowServer/HintServiceMeow)
+ Um sistema de interface do SCP: SL que permite que você desenvolva uma interface personalizada para seus jogadores
+#  Configuração
+Antes de instalar esse plug-in, você deve primeiro instalar [HintServiceMeow](https://github.com/MeowServer/HintServiceMeow)
     
-After installing the plugins mentioned above, follow the following steps to install the plugin.
-1.	Go to release on the right of this page, and download the newest dll file provided.
-2.	Paste this file into the Exiled/Plugins folder.
-3.	Restart your server
+Após instalar os plug-ins mencionados, siga os seguintes passos para instalar o plug-in.
+1.	Vá até a página de lançamento na parte direita dessa página e baixe o arquivo .dll mais novo fornecido.
+2.	Cole esse arquivo na pasta Exiled/Plugins.
+3.	Reinicie seu servidor
 
-# Customization
-CustomizableUIMeow allows you to design UI for your players without any programming efforts.
-Here's a tutorial for you to design your UI
-1. Install the plugin
-2. [Create elements](./Tutorial/CreateElements.md)
-3. [Create templates](./Tutorial/CreateTemplates.md)
-4. Restart your server
+# Customização
+O CustomizableUIMeow permite que você desenvolva uma interface para seus jogadores sem ter que se esforçar com programação.
+Aqui vai um tutorial para você de como desenvolver sua interface
+1. Instale o plug-in
+2. [Crie elementos](./Tutorial/CreateElements.md)
+3. [Crie templates](./Tutorial/CreateTemplates.md)
+4. Reinicie seu servidor
 
-# For Developers
-You can register your tag and condition using CustomizableUIMeow.API.Features. However, if you do not want your plugin to depend on CustomizableUIMeow, you can use reflection rather than calling the API directly.
-Here's a simple example of how to register your tag without a reference issue
+# Para Desenvolvedores
+Você pode registrar sua tag e condição usando CustomizableUIMeow.API.Features. No entanto, se você não quiser que seu plug-in dependa do CustomizableUIMeow, você pode usar reflexão (reflection) ao invés de chamar a API diretamente.
+Aqui vai um exemplo simples de como registrar sua tag sem um problema de referência.
 ```Csharp
 //Try find type
 string typeName = "CustomizableUIMeow.API.Features.TagParser, CustomizableUIMeow";
@@ -48,10 +48,10 @@ Func<Dictionary<string, object>, object> parser = parameter =>
 //Register tag
 methodInfo.Invoke(null, new object[] { "YourTagName", parser });
 ```
-### Parameters
-You can use Dictionary<string, object> or dynamic as your parser's parameter. Here's the structure of the parameters:
+### Parâmetros
+Você pode usar Dictionary<string, object> ou dynamic como seu parâmetro de analisador (parser). Aqui está a estrutura dos parâmetros:
 
-The structure of the tag parser parameter dictionary:
+A estrutura do dicionário de parâmetros da tag de analisador (parser):
 ```Csharp
 {
     { "Player", Player },//Player
@@ -59,14 +59,14 @@ The structure of the tag parser parameter dictionary:
     { "Arguments", Arguments }//Queue<string>
 }
 ```
-Here's the structure of the tag parser parameter:
+Aqui está a estrutura do parâmetro da tag de analisador (parser):
 ```Csharp
 public readonly string TagName;
 public readonly Player Player;
 public readonly Queue<string> Arguments;
 ```
 
-For conditions:
+Para condições:
 ```Csharp
 {
     {"Player", Player }//Player
