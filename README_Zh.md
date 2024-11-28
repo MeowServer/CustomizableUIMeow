@@ -1,6 +1,7 @@
 ### Meow服务器设计~
 - [English](https://github.com/MeowServer/CustomizableUIMeow/blob/main/README.md)
 - [中文](https://github.com/MeowServer/CustomizableUIMeow/blob/main/README_Zh.md)
+- [Português](https://github.com/MeowServer/CustomizableUIMeow/blob/main/README_Br.md)
 # 自定义UI
  一个SCP: SL的UI系统，允许服务器自定义自己的玩家UI
 #  安装
