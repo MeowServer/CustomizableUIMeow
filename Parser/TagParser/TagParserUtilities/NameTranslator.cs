@@ -77,7 +77,9 @@ namespace CustomizableUIMeow.Parser.TagParser.ParserUtilities
 
         public static string GetName(SpawnableTeamType spawningTeamType)
         {
-            if (PluginTranslation.RespawnTeamDictionary.TryGetValue(spawningTeamType, out string name))
+            //I have no idea yet. but this fixed is work for some reason.
+            //TODO: Hope Fansh fix this.
+            if (PluginTranslation.RespawnTeamDictionary.TryGetValue((Team)spawningTeamType, out string name))
             {
                 return name;
             }
