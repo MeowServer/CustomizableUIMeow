@@ -3,7 +3,7 @@
 namespace CustomizableUIMeow.Parser.ConditionParser
 {
     [AttributeUsage(AttributeTargets.Method)]
-    public class ConditionParserAttribute:Attribute
+    public class ConditionParserAttribute : Attribute
     {
         public string ConditionName { get; }
 

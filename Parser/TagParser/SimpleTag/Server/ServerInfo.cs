@@ -1,7 +1,6 @@
 ﻿namespace CustomizableUIMeow.Parser.SimpleTag.TagParser.Server
 {
     using CustomizableUIMeow.Parser.TagParser;
-    using CustomizableUIMeow.Parser.TagParser.ParserUtilities;
     using Exiled.API.Features;
 
     public class ServerInfo

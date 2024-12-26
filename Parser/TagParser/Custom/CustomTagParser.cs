@@ -1,16 +1,12 @@
 ﻿using CustomizableUIMeow.Model;
 using CustomizableUIMeow.Model.ConfigClass;
-using CustomizableUIMeow.Parser.SimpleTag.TagParser;
 using CustomizableUIMeow.Utilities;
+using Exiled.API.Features;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using YamlDotNet.Serialization.NamingConventions;
 using YamlDotNet.Serialization;
-using Exiled.API.Features;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace CustomizableUIMeow.Parser.TagParser.Custom
 {
@@ -25,7 +21,7 @@ namespace CustomizableUIMeow.Parser.TagParser.Custom
         [TagParser("CustomHints")]
         public string Hint(TagParserParameter parameter)
         {
-            if(!_initialized)
+            if (!_initialized)
                 Initialize();
 
             if (!parameter.Arguments.TryDequeue(out var arg))
@@ -37,13 +33,13 @@ namespace CustomizableUIMeow.Parser.TagParser.Custom
                 return null;
 
             //Initialize the tag if it's the first time
-            if(customTag.NextUpdate == DateTime.MinValue)
+            if (customTag.NextUpdate == DateTime.MinValue)
             {
                 customTag.NextUpdate = DateTime.Now.AddSeconds(customTag.SwitchInterval);
             }
 
             //Update the tag if it's time
-            if(DateTime.Now > customTag.NextUpdate)
+            if (DateTime.Now > customTag.NextUpdate)
             {
                 customTag.NextUpdate = DateTime.Now.AddSeconds(customTag.SwitchInterval);
 
@@ -79,7 +75,7 @@ namespace CustomizableUIMeow.Parser.TagParser.Custom
 
                     _customTags.Add(tag);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Log.Error($"Error while parsing custom tags. File: {file.Item1} Exception: {ex}");
                 }

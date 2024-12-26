@@ -1,7 +1,7 @@
 ﻿namespace CustomizableUIMeow.Parser.SimpleTag.TagParser.Warhead
 {
-    using CustomizableUIMeow.Parser.TagParser.ParserUtilities;
     using CustomizableUIMeow.Parser.TagParser;
+    using CustomizableUIMeow.Parser.TagParser.ParserUtilities;
     using Exiled.API.Features;
 
     public class WarheadInfo

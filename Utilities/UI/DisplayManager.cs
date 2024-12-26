@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using CustomizableUIMeow.Model;
+﻿using CustomizableUIMeow.Model;
 using CustomizableUIMeow.Parser.ConditionParser;
 using Exiled.API.Features;
 using HintServiceMeow.Core.Extension;
 using HintServiceMeow.Core.Utilities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Hint = HintServiceMeow.Core.Models.Hints.Hint;
 
 namespace CustomizableUIMeow.Utilities.UI
@@ -29,7 +28,7 @@ namespace CustomizableUIMeow.Utilities.UI
         {
             var manager = DisplayManagers.FirstOrDefault(x => x.Player == player);
 
-            return manager??new DisplayManager(player);
+            return manager ?? new DisplayManager(player);
         }
 
         public static void Destruct(Player player)
@@ -99,7 +98,7 @@ namespace CustomizableUIMeow.Utilities.UI
 
                             return null;
                         }
-                    }); 
+                    });
             }
 
             return hints;

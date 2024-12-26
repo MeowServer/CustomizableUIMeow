@@ -46,14 +46,14 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
         /// </summary>
         public Dictionary<RoleTypeId, int> DeathCountAsRole { get; } = new Dictionary<RoleTypeId, int>();
 
-        private List<KillRecord> KillRecordList { get;} = new List<KillRecord>();
+        private List<KillRecord> KillRecordList { get; } = new List<KillRecord>();
         private List<DeathRecord> DeathRecordList { get; } = new List<DeathRecord>();
 
         private PlayerRecorder(Player player)
         {
             PlayerRecorders.Add(player.UserId, this);
 
-            foreach(RoleTypeId roleType in Enum.GetValues(typeof(RoleTypeId)))
+            foreach (RoleTypeId roleType in Enum.GetValues(typeof(RoleTypeId)))
             {
                 RoleKillCount.Add(roleType, 0);
                 RoleKillCountAfterRevive.Add(roleType, 0);
@@ -67,7 +67,7 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
         {
             if (player == null)
                 throw new ArgumentNullException(nameof(player));
-            if(player.UserId == null)
+            if (player.UserId == null)
                 throw new ArgumentNullException(nameof(player.UserId));
 
             return PlayerRecorders.TryGetValue(player.UserId, out var recorder) ? recorder : new PlayerRecorder(player);

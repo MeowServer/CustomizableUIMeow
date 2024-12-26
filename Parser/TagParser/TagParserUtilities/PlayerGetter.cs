@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CustomizableUIMeow.Parser.SimpleTag.TagParser;
-using Exiled.API.Features.Roles;
+﻿using Exiled.API.Features.Roles;
 
 namespace CustomizableUIMeow.Parser.TagParser.ParserUtilities
 {
@@ -17,13 +11,13 @@ namespace CustomizableUIMeow.Parser.TagParser.ParserUtilities
             if (parameter.Arguments.IsEmpty())
                 return parameter.Player;
 
-            if(!parameter.Arguments.TryDequeue(out var arg))
+            if (!parameter.Arguments.TryDequeue(out var arg))
                 return parameter.Player;
 
             switch (arg.ToLower())
             {
                 case "spectatedplayer":
-                    if(parameter.Player.Role is SpectatorRole spectator)
+                    if (parameter.Player.Role is SpectatorRole spectator)
                         return spectator.SpectatedPlayer;
                     break;
             }

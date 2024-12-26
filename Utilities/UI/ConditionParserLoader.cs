@@ -1,11 +1,9 @@
-﻿using CustomizableUIMeow.Parser;
+﻿using CustomizableUIMeow.Parser.ConditionParser;
+using Exiled.API.Features;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-
-using CustomizableUIMeow.Parser.ConditionParser;
-using Exiled.API.Features;
 
 namespace CustomizableUIMeow.Utilities.UI
 {
@@ -54,7 +52,7 @@ namespace CustomizableUIMeow.Utilities.UI
                         var delegateInstance = (ConditionParserDelegate)Delegate.CreateDelegate(typeof(ConditionParserDelegate), provider, method);
                         _variables[attribute.ConditionName.ToLower().Trim()] = delegateInstance;
                     }
-                    else if(parameters.Length == 0 && method.ReturnType == typeof(bool))
+                    else if (parameters.Length == 0 && method.ReturnType == typeof(bool))
                     {
                         var delegateInstance = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), provider, method);
                         _variables[attribute.ConditionName.ToLower().Trim()] = parameter => delegateInstance.Invoke();

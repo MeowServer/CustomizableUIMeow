@@ -11,11 +11,8 @@
         [TagParser("RChangedIntoZombies")]
         public string ChangedIntoZombies(TagParserParameter parameter) => Round.ChangedIntoZombies.ToString();
 
-        [TagParser("RChaosTargetCounte")]
-        public string ChaosTargetCount(TagParserParameter parameter) => Round.ChaosTargetCount.ToString();
-
         [TagParser("REscapedDClasses")]
-        public string EscapedDClasses(TagParserParameter parameter) =>Round.EscapedDClasses.ToString();
+        public string EscapedDClasses(TagParserParameter parameter) => Round.EscapedDClasses.ToString();
 
         [TagParser("REscapedScientists")]
         public string EscapedScientists(TagParserParameter parameter) => Round.EscapedScientists.ToString();

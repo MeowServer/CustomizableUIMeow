@@ -1,8 +1,8 @@
-﻿using System;
-using CustomizableUIMeow.Utilities.UI;
+﻿using CustomizableUIMeow.Utilities.UI;
 using Exiled.API.Features;
 using Exiled.Events.EventArgs.Player;
 using MEC;
+using System;
 
 namespace CustomizableUIMeow
 {
@@ -28,7 +28,7 @@ namespace CustomizableUIMeow
         {
             Timing.CallDelayed(0f, () =>
             {
-                if(ev.Player == null)
+                if (ev.Player == null)
                     return;
 
                 try

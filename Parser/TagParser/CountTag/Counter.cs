@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
-using Exiled.API.Features;
+﻿using CustomizableUIMeow.Parser.TagParser.TagParserUtilities;
 using Exiled.API.Enums;
-using CustomizableUIMeow.Parser.TagParser.TagParserUtilities;
+using Exiled.API.Features;
+using System;
+using System.Linq;
 
 namespace CustomizableUIMeow.Parser.TagParser.CountTag
 {
@@ -26,7 +26,7 @@ namespace CustomizableUIMeow.Parser.TagParser.CountTag
 
                 return roleCount.ToString();
             }
-               
+
 
             if (Enum.TryParse(arg, true, out AmmoType ammoType))
                 return parameter.Player.GetAmmo(ammoType).ToString();

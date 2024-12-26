@@ -1,8 +1,8 @@
 ﻿using CustomizableUIMeow.Utilities.UI;
+using Exiled.API.Features;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Exiled.API.Features;
 using System.Reflection;
 
 namespace CustomizableUIMeow.API.Features

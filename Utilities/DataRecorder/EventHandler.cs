@@ -30,9 +30,9 @@ namespace CustomizableUIMeow.Utilities.DataRecorder
 
             //Add death record
             PlayerRecorder.GetOrCreate(ev.Player).AddDeathRecord(new PlayerRecorder.DeathRecord(
-                    ev.Attacker?.UserId, 
-                    ev.Player.UserId, 
-                    ev.Attacker?.Role.Type??RoleTypeId.None, 
+                    ev.Attacker?.UserId,
+                    ev.Player.UserId,
+                    ev.Attacker?.Role.Type ?? RoleTypeId.None,
                     ev.TargetOldRole)
                 );
 

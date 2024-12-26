@@ -1,10 +1,6 @@
 ﻿using PlayerRoles;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomizableUIMeow.Parser.TagParser.TagParserUtilities
 {
@@ -17,7 +13,7 @@ namespace CustomizableUIMeow.Parser.TagParser.TagParserUtilities
             result = new List<RoleTypeId>();
             foreach (var arg in argument)
             {
-                if(Enum.TryParse(arg, true, out RoleTypeId roleType))
+                if (Enum.TryParse(arg, true, out RoleTypeId roleType))
                 {
                     result.Add(roleType);
                 }

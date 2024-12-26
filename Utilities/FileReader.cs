@@ -1,11 +1,10 @@
-﻿using System;
+﻿using CustomizableUIMeow.Model.ConfigClass;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using YamlDotNet.Serialization.NamingConventions;
 using YamlDotNet.Serialization;
-using CustomizableUIMeow.Model.ConfigClass;
-using CustomizableUIMeow.Model;
+using YamlDotNet.Serialization.NamingConventions;
 namespace CustomizableUIMeow.Utilities
 {
     public static class FileReader
@@ -41,8 +40,8 @@ namespace CustomizableUIMeow.Utilities
                 .Build();
 
             //Templates
-            var path =  Path.Combine(FilePath, FileType.Templates.ToString());
-            if(!Directory.Exists(path))
+            var path = Path.Combine(FilePath, FileType.Templates.ToString());
+            if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
                 File.WriteAllText(Path.Combine(path, "YourTemplate.yml"), serializer.Serialize(new UITemplateConfig()));

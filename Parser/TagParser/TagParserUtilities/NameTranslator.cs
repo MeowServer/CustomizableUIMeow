@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Exiled.API.Enums;
-using Exiled.API.Interfaces;
-using Exiled.Events.EventArgs.Scp173;
+﻿using Exiled.API.Enums;
 using PlayerRoles;
 using Respawning;
+using System;
 
 namespace CustomizableUIMeow.Parser.TagParser.ParserUtilities
 {
@@ -77,9 +71,7 @@ namespace CustomizableUIMeow.Parser.TagParser.ParserUtilities
 
         public static string GetName(SpawnableTeamType spawningTeamType)
         {
-            //I have no idea yet. but this fixed is work for some reason.
-            //TODO: Hope Fansh fix this.
-            if (PluginTranslation.RespawnTeamDictionary.TryGetValue((Team)spawningTeamType, out string name))
+            if (PluginTranslation.RespawnTeamDictionary.TryGetValue(spawningTeamType, out string name))
             {
                 return name;
             }

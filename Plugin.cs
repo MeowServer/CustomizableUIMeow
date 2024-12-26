@@ -1,10 +1,9 @@
-﻿using Exiled.API.Enums;
-using Exiled.API.Features;
-using System;
-using CustomizableUIMeow.Parser;
-using CustomizableUIMeow.Parser.ConditionParser;
+﻿using CustomizableUIMeow.Parser.ConditionParser;
 using CustomizableUIMeow.Utilities;
 using CustomizableUIMeow.Utilities.UI;
+using Exiled.API.Enums;
+using Exiled.API.Features;
+using System;
 
 // * V1.0.0
 // *     Separate from HintServiceMeow and add new features
@@ -27,6 +26,10 @@ using CustomizableUIMeow.Utilities.UI;
 // *    Fix the bug that Player Data Recorder does not work properly when using NPC
 // * V2.0.8
 // *    Fix the bug that Player Data Recorder does not work properly when using NPC (Again)
+// * V2.0.9
+// *    Remove Respawn to adapt Exiled 9.0
+// *    Remove RChaosTargetCounte to adapt Exiled 9.0
+// *    Code clean-up
 
 namespace CustomizableUIMeow
 {
@@ -34,7 +37,7 @@ namespace CustomizableUIMeow
     {
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
-        public override Version Version => new Version(2, 0, 8);
+        public override Version Version => new Version(2, 0, 9);
 
         public override Version RequiredExiledVersion => new Version(8, 0, 0);
 
@@ -92,7 +95,7 @@ namespace CustomizableUIMeow
         {
             DisplayManager.DisplayManagers.Clear();
 
-            foreach(Player player in Player.List)
+            foreach (Player player in Player.List)
             {
                 DisplayManager.GetOrCreate(player).SetTemplate();
             }

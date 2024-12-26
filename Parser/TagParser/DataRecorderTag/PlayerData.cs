@@ -1,11 +1,5 @@
-﻿using CustomizableUIMeow.Utilities.DataRecorder;
-using PlayerRoles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CustomizableUIMeow.Parser.TagParser.TagParserUtilities;
+﻿using CustomizableUIMeow.Parser.TagParser.TagParserUtilities;
+using CustomizableUIMeow.Utilities.DataRecorder;
 
 namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
 {
@@ -14,7 +8,7 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
         [TagParser("PDKillCount")]
         public object KillCount(TagParserParameter parameter)
         {
-            if(parameter.Player?.UserId == null)
+            if (parameter.Player?.UserId == null)
                 return 0;
 
             if (parameter.Arguments.TryDequeue(out string arg1))
@@ -24,7 +18,7 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
                     return PlayerRecorder.GetOrCreate(parameter.Player).KillCountAfterRevive;
                 }
 
-                if(RoleTypeGetter.TryGetRoles(arg1, out var roles))
+                if (RoleTypeGetter.TryGetRoles(arg1, out var roles))
                 {
                     var result = 0;
 
@@ -32,7 +26,7 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
                     {
                         foreach (var role in roles)
                         {
-                            if(PlayerRecorder.GetOrCreate(parameter.Player).RoleKillCountAfterRevive.TryGetValue(role, out var count))
+                            if (PlayerRecorder.GetOrCreate(parameter.Player).RoleKillCountAfterRevive.TryGetValue(role, out var count))
                             {
                                 result += count;
                             }
@@ -42,7 +36,7 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
                     {
                         foreach (var role in roles)
                         {
-                            if(PlayerRecorder.GetOrCreate(parameter.Player).RoleKillCount.TryGetValue(role, out var count))
+                            if (PlayerRecorder.GetOrCreate(parameter.Player).RoleKillCount.TryGetValue(role, out var count))
                             {
                                 result += count;
                             }
@@ -50,7 +44,7 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
                     }
 
                     return result;
-                    
+
                 }
             }
 
@@ -65,7 +59,7 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
 
             if (parameter.Arguments.TryDequeue(out var arg1))
             {
-                if(RoleTypeGetter.TryGetRoles(arg1, out var roles))
+                if (RoleTypeGetter.TryGetRoles(arg1, out var roles))
                 {
                     var result = 0;
 
@@ -73,7 +67,7 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
                     {
                         foreach (var role in roles)
                         {
-                            if(PlayerRecorder.GetOrCreate(parameter.Player).DeathCountAsRole.TryGetValue(role, out var count))
+                            if (PlayerRecorder.GetOrCreate(parameter.Player).DeathCountAsRole.TryGetValue(role, out var count))
                             {
                                 result += count;
                             }
@@ -83,7 +77,7 @@ namespace CustomizableUIMeow.Parser.TagParser.DataRecorderTag
                     {
                         foreach (var role in roles)
                         {
-                            if(PlayerRecorder.GetOrCreate(parameter.Player).RoleDeathCount.TryGetValue(role, out var count))
+                            if (PlayerRecorder.GetOrCreate(parameter.Player).RoleDeathCount.TryGetValue(role, out var count))
                             {
                                 result += count;
                             }

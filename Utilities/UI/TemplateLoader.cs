@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CustomizableUIMeow.Model;
+﻿using CustomizableUIMeow.Model;
 using CustomizableUIMeow.Model.ConfigClass;
 using Exiled.API.Features;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using static CustomizableUIMeow.Model.UITemplate;
@@ -50,7 +50,7 @@ namespace CustomizableUIMeow.Utilities.UI
 
                     elementList.Add(element);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Log.Error($"Error while parsing elements. File: {file.Item1} Exception: {ex}");
                 }
@@ -74,7 +74,7 @@ namespace CustomizableUIMeow.Utilities.UI
 
                     templateList.Add(ParseTemplateConfig(templateConfig));
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Log.Error($"Error while parsing templates. File: {file.Item1} Exception: {ex}");
                 }
@@ -122,7 +122,7 @@ namespace CustomizableUIMeow.Utilities.UI
                             }
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Log.Error($"Error while parsing elements when initialize the template: {ex}");
                 }
