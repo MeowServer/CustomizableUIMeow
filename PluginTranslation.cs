@@ -124,12 +124,13 @@ namespace CustomizableUIMeow
             {ZoneType.Unspecified, "Unspecified" }
         };
 
+        //I don't fucking know it is work on other people. but it's worked on me.
         [Description("PluginTranslation of different respawnable role types")]
-        public Dictionary<SpawnableTeamType, string> RespawnTeamDictionary { get; private set; } = new Dictionary<SpawnableTeamType, string>
+        public Dictionary<Team, string> RespawnTeamDictionary { get; private set; } = new Dictionary<Team, string>
         {
-            {SpawnableTeamType.NineTailedFox,"<color=#0096FF>NTF</color>" },
-            {SpawnableTeamType.ChaosInsurgency,"<color=#0D7D35>Chaos Insurgency</color>" },
-            {SpawnableTeamType.None, "None" }
+            {Team.FoundationForces, "<color=#0096FF>NTF</color>" },
+            {Team.ChaosInsurgency, "<color=#0D7D35>Chaos Insurgency</color>" },
+            {Team.Dead, "None" } 
         };
 
         [Description("PluginTranslation of different warhead status")]
