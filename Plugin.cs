@@ -27,6 +27,8 @@ using System;
 // * V2.0.8
 // *    Fix the bug that Player Data Recorder does not work properly when using NPC (Again)
 // * V2.0.9
+// *    Fix the bug that Player Data Recorder does not work properly when using NPC (Again 2)
+// * V2.0.10
 // *    Remove Respawn to adapt Exiled 9.0
 // *    Remove RChaosTargetCounte to adapt Exiled 9.0
 // *    Code clean-up
@@ -37,9 +39,9 @@ namespace CustomizableUIMeow
     {
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
-        public override Version Version => new Version(2, 0, 9);
+        public override Version Version => new Version(2, 0, 10);
 
-        public override Version RequiredExiledVersion => new Version(8, 0, 0);
+        public override Version RequiredExiledVersion => new Version(9, 0, 0);
 
         public override PluginPriority Priority => PluginPriority.Default;
 
