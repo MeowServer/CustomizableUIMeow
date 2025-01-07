@@ -1,8 +1,8 @@
-﻿using CustomizableUIMeow.Utilities.UI;
+﻿using System;
+using CustomizableUIMeow.Utilities.UI;
 using Exiled.API.Features;
 using Exiled.Events.EventArgs.Player;
 using MEC;
-using System;
 
 namespace CustomizableUIMeow
 {

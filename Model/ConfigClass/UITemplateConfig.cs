@@ -1,6 +1,6 @@
-﻿using PlayerRoles;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using PlayerRoles;
 
 namespace CustomizableUIMeow.Model.ConfigClass
 {

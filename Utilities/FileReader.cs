@@ -1,8 +1,8 @@
-﻿using CustomizableUIMeow.Model.ConfigClass;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using CustomizableUIMeow.Model.ConfigClass;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 namespace CustomizableUIMeow.Utilities

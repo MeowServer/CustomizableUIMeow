@@ -1,7 +1,6 @@
-﻿using Exiled.API.Enums;
+﻿using System;
+using Exiled.API.Enums;
 using PlayerRoles;
-using Respawning;
-using System;
 
 namespace CustomizableUIMeow.Parser.TagParser.ParserUtilities
 {
@@ -62,16 +61,6 @@ namespace CustomizableUIMeow.Parser.TagParser.ParserUtilities
         public static string GetName(ZoneType zoneType)
         {
             if (PluginTranslation.ZoneName.TryGetValue(zoneType, out string name))
-            {
-                return name;
-            }
-
-            return null;
-        }
-
-        public static string GetName(SpawnableTeamType spawningTeamType)
-        {
-            if (PluginTranslation.RespawnTeamDictionary.TryGetValue(spawningTeamType, out string name))
             {
                 return name;
             }

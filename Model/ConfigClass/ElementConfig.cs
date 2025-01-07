@@ -1,6 +1,6 @@
-﻿using HintServiceMeow.Core.Enum;
-using System;
+﻿using System;
 using System.ComponentModel;
+using HintServiceMeow.Core.Enum;
 
 namespace CustomizableUIMeow.Model.ConfigClass
 {

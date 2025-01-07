@@ -1,9 +1,9 @@
-﻿using CustomizableUIMeow.Model;
-using CustomizableUIMeow.Model.ConfigClass;
-using Exiled.API.Features;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CustomizableUIMeow.Model;
+using CustomizableUIMeow.Model.ConfigClass;
+using Exiled.API.Features;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using static CustomizableUIMeow.Model.UITemplate;

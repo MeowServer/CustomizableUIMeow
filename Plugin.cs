@@ -1,9 +1,9 @@
-﻿using CustomizableUIMeow.Parser.ConditionParser;
+﻿using System;
+using CustomizableUIMeow.Parser.ConditionParser;
 using CustomizableUIMeow.Utilities;
 using CustomizableUIMeow.Utilities.UI;
 using Exiled.API.Enums;
 using Exiled.API.Features;
-using System;
 
 // * V1.0.0
 // *     Separate from HintServiceMeow and add new features
