@@ -32,6 +32,9 @@ using Exiled.API.Features;
 // *    Remove Respawn to adapt Exiled 9.0
 // *    Remove RChaosTargetCounte to adapt Exiled 9.0
 // *    Code clean-up
+// * V2.0.11
+// *    Updated to Exiled 9.2.2
+// *    Fixed several compatibility issues
 
 namespace CustomizableUIMeow
 {
@@ -39,7 +42,7 @@ namespace CustomizableUIMeow
     {
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
-        public override Version Version => new Version(2, 0, 10);
+        public override Version Version => new Version(2, 0, 11);
 
         public override Version RequiredExiledVersion => new Version(9, 0, 0);
 
