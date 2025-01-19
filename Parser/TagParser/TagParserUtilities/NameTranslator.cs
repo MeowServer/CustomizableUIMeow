@@ -1,6 +1,7 @@
-﻿using System;
-using Exiled.API.Enums;
+﻿using Exiled.API.Enums;
 using PlayerRoles;
+using Respawning;
+using System;
 
 namespace CustomizableUIMeow.Parser.TagParser.ParserUtilities
 {
@@ -71,6 +72,26 @@ namespace CustomizableUIMeow.Parser.TagParser.ParserUtilities
         public static string GetName(WarheadStatus warheadStatus)
         {
             if (PluginTranslation.WarheadStatusDictionary.TryGetValue(warheadStatus, out string name))
+            {
+                return name;
+            }
+
+            return null;
+        }
+
+        public static string GetName(WaveQueueState scp079Lvl)
+        {
+            if (PluginTranslation.WaveQueueStateDictionary.TryGetValue(scp079Lvl, out string name))
+            {
+                return name;
+            }
+
+            return null;
+        }
+
+        public static string GetName(SpawnableFaction spawnableFaction)
+        {
+            if (PluginTranslation.SpawnableFactionDictionary.TryGetValue(spawnableFaction, out string name))
             {
                 return name;
             }

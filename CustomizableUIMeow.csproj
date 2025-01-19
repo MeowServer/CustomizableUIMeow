@@ -138,6 +138,8 @@
     <Compile Include="Parser\TagParser\HelperTag\ColorHelper.cs" />
     <Compile Include="Parser\TagParser\SimpleTag\Generator\GeneratorInfo.cs" />
     <Compile Include="Parser\TagParser\SimpleTag\PlayerInfo\IdInfo.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\PlayerInfo\Info.cs" />
+    <Compile Include="Parser\TagParser\SimpleTag\Respawn\Respawn.cs" />
     <Compile Include="Parser\TagParser\TagParserAttribute.cs" />
     <Compile Include="Parser\TagParser\TagParserParameter.cs" />
     <Compile Include="Parser\TagParser\TagParserUtilities\RoleTypeGetter.cs" />
@@ -169,6 +171,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Version History.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

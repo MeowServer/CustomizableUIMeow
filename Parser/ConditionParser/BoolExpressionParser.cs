@@ -1,5 +1,5 @@
-﻿using System;
-using CustomizableUIMeow.Utilities.UI;
+﻿using CustomizableUIMeow.Utilities.UI;
+using System;
 
 namespace CustomizableUIMeow.Parser.ConditionParser
 {

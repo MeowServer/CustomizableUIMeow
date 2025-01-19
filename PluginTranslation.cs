@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using Exiled.API.Enums;
+﻿using Exiled.API.Enums;
 using Exiled.API.Interfaces;
 using PlayerRoles;
+using Respawning;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CustomizableUIMeow
 {
@@ -130,6 +131,23 @@ namespace CustomizableUIMeow
             {WarheadStatus.InProgress, "<color=#d0652f>In Progress</color>" },
         };
 
+        [Description("PluginTranslation of different wave queue states")]
+        public Dictionary<WaveQueueState, string> WaveQueueStateDictionary { get; private set; } = new Dictionary<WaveQueueState, string>
+        {
+            {WaveQueueState.Idle, "Idle" },
+            {WaveQueueState.WaveSelected, "Wave Selected" },
+            {WaveQueueState.WaveSpawned, "Spawned" },
+            {WaveQueueState.WaveSpawning, "Spawning" },
+        };
 
+        [Description("PluginTranslation of different repsawnable fractions")]
+        public Dictionary<SpawnableFaction, string> SpawnableFactionDictionary { get; private set; } = new Dictionary<SpawnableFaction, string>
+        {
+            {SpawnableFaction.NtfMiniWave, "Mini NTF Wave" },
+            {SpawnableFaction.NtfWave, "NTF Wave" },
+            {SpawnableFaction.ChaosMiniWave, "Mini Chaos Wave" },
+            {SpawnableFaction.ChaosWave, "Chaos Wave" },
+            {SpawnableFaction.None, "None" },
+        };
     }
 }

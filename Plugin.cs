@@ -1,40 +1,9 @@
-﻿using System;
-using CustomizableUIMeow.Parser.ConditionParser;
+﻿using CustomizableUIMeow.Parser.ConditionParser;
 using CustomizableUIMeow.Utilities;
 using CustomizableUIMeow.Utilities.UI;
 using Exiled.API.Enums;
 using Exiled.API.Features;
-
-// * V1.0.0
-// *     Separate from HintServiceMeow and add new features
-// * V2.0.0 Remake
-// * V2.0.1 Bug Fixing
-// *    Fixing the bug that the plugin throw null reference error when the player leave
-// * V2.0.2 Minor changes
-// *    Add API for other plugins to register their own tag parser and condition
-// *    Add Data Recorder tags for player kill count and death count
-// * V2.0.3 Bug Fixing
-// *    Fix the bug that cause API not working properly
-// * V2.0.4
-// *    Add randomize in CustomHints tag
-// * V2.0.5
-// *    Add new tags for player's ID
-// * V2.0.6
-// *    Fix the bug that cause the count tag does not work properly
-// *    Add RequiredExiledVersion
-// * V2.0.7
-// *    Fix the bug that Player Data Recorder does not work properly when using NPC
-// * V2.0.8
-// *    Fix the bug that Player Data Recorder does not work properly when using NPC (Again)
-// * V2.0.9
-// *    Fix the bug that Player Data Recorder does not work properly when using NPC (Again 2)
-// * V2.0.10
-// *    Remove Respawn to adapt Exiled 9.0
-// *    Remove RChaosTargetCounte to adapt Exiled 9.0
-// *    Code clean-up
-// * V2.0.11
-// *    Updated to Exiled 9.2.2
-// *    Fixed several compatibility issues
+using System;
 
 namespace CustomizableUIMeow
 {
@@ -42,7 +11,7 @@ namespace CustomizableUIMeow
     {
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
-        public override Version Version => new Version(2, 0, 11);
+        public override Version Version => new Version(2, 1, 0);
 
         public override Version RequiredExiledVersion => new Version(9, 0, 0);
 

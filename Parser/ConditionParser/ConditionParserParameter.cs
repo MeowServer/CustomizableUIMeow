@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Exiled.API.Features;
+﻿using Exiled.API.Features;
+using System.Collections.Generic;
 
 namespace CustomizableUIMeow.Parser.ConditionParser
 {

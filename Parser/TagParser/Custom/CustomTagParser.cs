@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CustomizableUIMeow.Model;
+﻿using CustomizableUIMeow.Model;
 using CustomizableUIMeow.Model.ConfigClass;
 using CustomizableUIMeow.Utilities;
 using Exiled.API.Features;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
