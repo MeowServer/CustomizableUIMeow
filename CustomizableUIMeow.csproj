@@ -53,9 +53,6 @@
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\OneDrive\桌面\C#测试\HintServiceMeow\HintServiceMeow\bin\Debug\0Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\SCPSL插件依赖\Master\Assembly-CSharp.dll</HintPath>
-    </Reference>
     <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\SCPSL插件依赖\Master\Assembly-CSharp-firstpass.dll</HintPath>
@@ -88,9 +85,9 @@
     <Reference Include="Exiled.Permissions, Version=9.2.2.0, Culture=neutral, processorArchitecture=AMD64">
       <HintPath>..\packages\ExMod.Exiled.9.2.2\lib\net48\Exiled.Permissions.dll</HintPath>
     </Reference>
-    <Reference Include="HintServiceMeow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="HintServiceMeow, Version=5.3.4.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SCPSL-Framework\HintServiceMeow\HintServiceMeow\bin\Debug\HintServiceMeow.dll</HintPath>
+      <HintPath>..\..\..\SCPSL-Framework\HintServiceMeow\HintServiceMeow\bin\x64\Release\HintServiceMeow.dll</HintPath>
     </Reference>
     <Reference Include="Mirror">
       <HintPath>..\..\..\..\OneDrive\桌面\C#测试\HintServiceMeow\HintServiceMeow\bin\Debug\Mirror.dll</HintPath>

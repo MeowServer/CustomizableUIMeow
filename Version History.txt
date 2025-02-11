@@ -32,3 +32,5 @@ V2.1.0
     Add new respawn tags
     Add new respawn condition tag
     Add new player custom info tag
+V2.1.1
+    Recompiled for HSM 5.3.12
