@@ -11,7 +11,7 @@ namespace CustomizableUIMeow
     {
         public override string Name => "CustomizableUIMeow";
         public override string Author => "MeowServer";
-        public override Version Version => new Version(2, 1, 1);
+        public override Version Version => new Version(2, 2, 0);
 
         public override Version RequiredExiledVersion => new Version(9, 0, 0);
 

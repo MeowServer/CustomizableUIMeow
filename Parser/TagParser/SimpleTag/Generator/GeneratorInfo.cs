@@ -8,6 +8,6 @@ namespace CustomizableUIMeow.Parser.TagParser.SimpleTag.Generator
         public string TotalCount(TagParserParameter parameter) => Exiled.API.Features.Generator.List.Count.ToString();
 
         [TagParser("GActivatedCount")]
-        public string ActivatedCount(TagParserParameter parameter) => Exiled.API.Features.Generator.List.Count(x => x.IsActivating).ToString();
+        public string ActivatedCount(TagParserParameter parameter) => Exiled.API.Features.Generator.List.Count(x => x.IsEngaged).ToString();
     }
 }

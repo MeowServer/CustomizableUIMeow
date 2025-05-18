@@ -75,27 +75,43 @@ namespace CustomizableUIMeow.Utilities.UI
         {
             return _tagRegex.Replace(rawText, match =>
             {
-                var tagContent = match.Groups[1].Value;
-
-                var parts = tagContent.Split('|');
-
-                var tagName = parts[0];
-                var args = new Queue<string>(parts.Skip(1));
-
-                if (_tagParserDictionary.TryGetValue(tagName.ToLower().Trim(), out var tagParser))
+                try
                 {
-                    try
-                    {
-                        return tagParser(new TagParserParameter(player, tagName, args))?.ToString() ?? string.Empty;
-                    }
-                    catch (Exception e)
-                    {
-                        Log.Error($"Error while parsing tag {tagName}: {e}");
-                    }
-                }
+                    var tagContent = match.Groups[1].Value;
+                    if (string.IsNullOrWhiteSpace(tagContent))
+                        return match.Value;
 
-                return match.Value;
+                    var parts = tagContent.Split('|');
+                    if (parts.Length == 0 || string.IsNullOrWhiteSpace(parts[0]))
+                        return match.Value;
+
+                    var tagName = parts[0].Trim().ToLower();
+                    var args = new Queue<string>(parts.Skip(1));
+
+                    if (_tagParserDictionary.TryGetValue(tagName, out var tagParser))
+                    {
+                        object result = null;
+                        try
+                        {
+                            result = tagParser(new TagParserParameter(player, tagName, args));
+                        }
+                        catch (Exception inner)
+                        {
+                            Log.Error($"[Tag:{tagName}] Tag parser error: {inner}");
+                        }
+
+                        return result?.ToString() ?? string.Empty;
+                    }
+
+                    return match.Value;
+                }
+                catch (Exception ex)
+                {
+                    Log.Error($"[TagParserLoader] ReplaceTags failed: {ex}");
+                    return match.Value;
+                }
             });
+
         }
     }
 }

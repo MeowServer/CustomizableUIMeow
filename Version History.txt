@@ -34,3 +34,6 @@ V2.1.0
     Add new player custom info tag
 V2.1.1
     Recompiled for HSM 5.3.12
+V2.2.0
+    Re-compile for SCPSL 14.1.0
+    Fix a bug in GeneratorInfo
